@@ -50,6 +50,23 @@ const BlogDetail = () => {
             </p>
           </div>
         </div>
+        <div className="blog-detail-tags">
+          <div className="detail-tag-title">
+            <p>Tags</p>
+          </div>
+          <div className="detail-tags">
+            <div className="tag-item">tag001</div>
+            <div className="tag-item">tag002</div>
+            <div className="tag-item">tag003</div>
+            <div className="tag-item">tag004</div>
+            <div className="tag-item">tag005</div>
+          </div>
+        </div>
+        <div className="blog-detail-social-share">
+          <div className="social-share">Facebook</div>
+          <div className="social-share">Twitter</div>
+          <div className="social-share">Instagram</div>
+        </div>
       </div>
       <Aside />
     </>
