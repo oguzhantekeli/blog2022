@@ -1,15 +1,29 @@
 import "./bloglist.css";
+import BlogItem from "../blogitem/BlogItem";
+
 const Bloglist = () => {
   return (
     <>
       <div className="blog-list">
         <div className="blog-items">
-          <div className="blog-item">blogitem</div>
-          <div className="blog-item">blogitem</div>
-          <div className="blog-item">blogitem</div>
-          <div className="blog-item">blogitem</div>
-          <div className="blog-item">blogitem</div>
-          <div className="blog-item">blogitem</div>
+          <div className="blog-item">
+            <BlogItem />
+          </div>
+          <div className="blog-item">
+            <BlogItem />
+          </div>
+          <div className="blog-item">
+            <BlogItem />
+          </div>
+          <div className="blog-item">
+            <BlogItem />
+          </div>
+          <div className="blog-item">
+            <BlogItem />
+          </div>
+          <div className="blog-item">
+            <BlogItem />
+          </div>
         </div>
         <div className="blog-pagination">
           <a href="./">Previous</a>

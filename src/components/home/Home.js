@@ -5,12 +5,8 @@ const Home = () => {
   return (
     <>
       <div className="home-container">
-        <div className="home-blog-items">
-          <Bloglist />
-        </div>
-        <div className="home-aside">
-          <Aside />
-        </div>
+        <Bloglist />
+        <Aside />
       </div>
     </>
   );
