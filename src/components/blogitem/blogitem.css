@@ -26,6 +26,7 @@
 .blog-item-text .blog-title {
   margin-bottom: 10px;
   font-size: 1.8rem;
+  font-weight: bold;
 }
 .blog-item-text .blog-abstract {
   margin-bottom: 10px;
