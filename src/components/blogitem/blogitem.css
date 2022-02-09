@@ -1,0 +1,36 @@
+.blog-list-item {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  border: 1px solid #858585;
+  border-radius: 20px;
+  padding: 20px;
+}
+.thumb-image {
+  height: 100px;
+  width: 100px;
+}
+.thumb-image img {
+  height: 100px;
+  width: 100px;
+}
+.blog-item-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.blog-item-text .category-badge {
+  width: fit-content;
+  font-size: 0.75rem;
+}
+.blog-item-text .blog-title {
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+}
+.blog-item-text .blog-abstract {
+  margin-bottom: 10px;
+  text-align: justify;
+}
+.blog-item-text .blog-item-meta {
+  font-size: 0.75rem;
+}

@@ -6,24 +6,12 @@ const Bloglist = () => {
     <>
       <div className="blog-list">
         <div className="blog-items">
-          <div className="blog-item">
-            <BlogItem />
-          </div>
-          <div className="blog-item">
-            <BlogItem />
-          </div>
-          <div className="blog-item">
-            <BlogItem />
-          </div>
-          <div className="blog-item">
-            <BlogItem />
-          </div>
-          <div className="blog-item">
-            <BlogItem />
-          </div>
-          <div className="blog-item">
-            <BlogItem />
-          </div>
+          <BlogItem />
+          <BlogItem />
+          <BlogItem />
+          <BlogItem />
+          <BlogItem />
+          <BlogItem />
         </div>
         <div className="blog-pagination">
           <a href="./">Previous</a>

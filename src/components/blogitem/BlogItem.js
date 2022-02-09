@@ -1,14 +1,19 @@
 import "./blogitem.css";
+import avatarThumb from "../../images/avatar.png";
 const BlogItem = () => {
   return (
     <>
       <div className="blog-list-item">
         <div className="thumb-image">
-          <img src="" alt="blogitem" />
+          <img src={avatarThumb} alt="blogitem" />
         </div>
-        <div className="blog-text">
-          <div className="category-badge">Category name</div>
-          <div className="blog-title">Blog title goes here</div>
+        <div className="blog-item-text">
+          <div className="category-badge">
+            <a href="./">Category name</a>
+          </div>
+          <div className="blog-title">
+            <a href="./">Blog title goes here</a>
+          </div>
           <div className="blog-abstract">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in
             sagittis ligula. Sed elit ex, fermentum sit amet elit sit amet,

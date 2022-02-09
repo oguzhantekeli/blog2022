@@ -1,0 +1,109 @@
+.aside {
+  width: 25%;
+}
+.aside-search {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.aside-search h2 {
+  font-size: 1.4rem;
+}
+.search-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.search-group input {
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #000;
+  font-size: 1.1rem;
+}
+.search-group .btn-aside-search {
+  outline: none;
+  border: none;
+  background-color: #424242;
+  color: #fff;
+  font-size: 1.1rem;
+  padding: 5px;
+}
+.recent-posts {
+  display: flex;
+  flex-direction: column;
+}
+.recent-posts h2 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+.recent-posts .recent-posts-items {
+  display: flex;
+  flex-direction: column;
+}
+.recent-post-item {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 2px solid #acacac;
+  padding-bottom: 10px;
+}
+.recent-thumb {
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+}
+.recent-thumb img {
+  width: inherit;
+  height: inherit;
+}
+.recent-post-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.recent-post-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.recent-post-date {
+  font-size: 0.75rem;
+}
+.advertise {
+  max-width: 100%;
+  background-color: #918484;
+  margin-bottom: 20px;
+}
+.advertise img {
+  width: 100%;
+}
+.aside-social-feed {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  margin-bottom: 20px;
+}
+.aside-social-feed img {
+  margin: 0px auto;
+  width: 100%;
+  border: 1px solid #858585;
+}
+.aside-categories {
+  display: flex;
+  flex-direction: column;
+}
+.aside-categories h2 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+.aside-category-list {
+  display: flex;
+  flex-direction: column;
+}
+.aside-category-list .aside-category-item {
+  border-bottom: 1px solid #424242;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+}
+.aside-category-list .aside-category-item p span {
+  font-size: 0.75rem;
+}

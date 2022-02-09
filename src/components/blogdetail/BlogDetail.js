@@ -1,6 +1,7 @@
 import "./blogdetail.css";
 import Aside from "../aside/Aside";
 import blogImage from "../../images/header-image.png";
+import Comments from "../comments/Comments";
 const BlogDetail = () => {
   return (
     <>
@@ -67,6 +68,7 @@ const BlogDetail = () => {
           <div className="social-share">Twitter</div>
           <div className="social-share">Instagram</div>
         </div>
+        <Comments />
       </div>
       <Aside />
     </>

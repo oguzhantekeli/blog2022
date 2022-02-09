@@ -1,18 +1,14 @@
 import React from "react";
-
 import "./reset.css";
-
+import "./app.css";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
-import Featured from "./components/featured/Featured";
 import Home from "./components/home/Home";
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <Header />
-      <Featured />
       <Home />
-      main content goes here
       <Footer />
     </div>
   );

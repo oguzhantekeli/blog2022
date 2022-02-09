@@ -6,18 +6,31 @@ const Header = () => {
       <div className="header-top">
         <div className="socials">
           <div className="social-item">
-            <a href="./">Facebook</a>
+            <a href="./">
+              <i class="fab fa-facebook-square"></i>
+            </a>
           </div>
           <div className="social-item">
-            <a href="./">Twitter</a>
+            <a href="./">
+              <i class="fab fa-twitter-square"></i>
+            </a>
           </div>
           <div className="social-item">
-            <a href="./">Instagram</a>
+            <a href="./">
+              <i class="fab fa-instagram-square"></i>
+            </a>
           </div>
         </div>
         <div className="search-bar">
-          <input type="text" placeholder="search" />
-          <button className="btn btn-search">Search</button>
+          <form action="" method="post">
+            <input
+              type="text"
+              placeholder="search"
+              name="search"
+              autocomplete="off"
+            />
+            <button className="btn btn-search">Search</button>
+          </form>
         </div>
       </div>
       <header>
@@ -26,11 +39,21 @@ const Header = () => {
         </div>
         <nav>
           <ul className="navs">
-            <li className="nav-item">Home</li>
-            <li className="nav-item">Category 1</li>
-            <li className="nav-item">Category 2</li>
-            <li className="nav-item">Category 3</li>
-            <li className="nav-item">Contact</li>
+            <li className="nav-item">
+              <a href="./">Home</a>
+            </li>
+            <li className="nav-item">
+              <a href="./">Category 1</a>
+            </li>
+            <li className="nav-item">
+              <a href="./">Category 2</a>
+            </li>
+            <li className="nav-item">
+              <a href="./">Category 3</a>
+            </li>
+            <li className="nav-item">
+              <a href="./">Contact</a>
+            </li>
           </ul>
         </nav>
       </header>
