@@ -9,6 +9,7 @@
 .thumb-image {
   height: 100px;
   width: 100px;
+  margin-right: 10px;
 }
 .thumb-image img {
   height: 100px;

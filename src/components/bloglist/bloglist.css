@@ -9,19 +9,3 @@
   flex-direction: column;
   margin-bottom: 20px;
 }
-.blog-pagination {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-.blog-pagination a {
-  padding: 10px;
-  border: 1px solid #000;
-  margin: 10px;
-  transition: all.3s;
-}
-.blog-pagination a:hover {
-  background-color: #3f3f3f;
-  color: #fff;
-  transition: all.3s;
-}

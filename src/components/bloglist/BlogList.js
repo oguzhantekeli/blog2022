@@ -1,25 +1,14 @@
+import React from "react";
 import "./bloglist.css";
 import BlogItem from "../blogitem/BlogItem";
 
-const Bloglist = () => {
+const Bloglist = ({ items }) => {
   return (
     <>
-      <div className="blog-list">
-        <div className="blog-items">
-          <BlogItem />
-          <BlogItem />
-          <BlogItem />
-          <BlogItem />
-          <BlogItem />
-          <BlogItem />
-        </div>
-        <div className="blog-pagination">
-          <a href="./">Previous</a>
-          <a href="./">1</a>
-          <a href="./">2</a>
-          <a href="./">3</a>
-          <a href="./">Next</a>
-        </div>
+      <div className="blog-items">
+        {items.map((d, k) => {
+          return <BlogItem data={d} key={k} />;
+        })}
       </div>
     </>
   );

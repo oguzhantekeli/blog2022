@@ -11,7 +11,7 @@ const Aside = () => {
           <div className="search-group">
             <input type="text" placeholder="search blog..." />
             <button className="btn-aside-search">
-              Search <i class="fas fa-search"></i>
+              Search <i className="fas fa-search"></i>
             </button>
           </div>
         </div>

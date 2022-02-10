@@ -7,17 +7,17 @@ const Header = () => {
         <div className="socials">
           <div className="social-item">
             <a href="./">
-              <i class="fab fa-facebook-square"></i>
+              <i className="fab fa-facebook-square"></i>
             </a>
           </div>
           <div className="social-item">
             <a href="./">
-              <i class="fab fa-twitter-square"></i>
+              <i className="fab fa-twitter-square"></i>
             </a>
           </div>
           <div className="social-item">
             <a href="./">
-              <i class="fab fa-instagram-square"></i>
+              <i className="fab fa-instagram-square"></i>
             </a>
           </div>
         </div>
@@ -27,7 +27,7 @@ const Header = () => {
               type="text"
               placeholder="search"
               name="search"
-              autocomplete="off"
+              autoComplete="off"
             />
             <button className="btn btn-search">Search</button>
           </form>
