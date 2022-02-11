@@ -45,6 +45,37 @@ const Home = () => {
 
   //featured items state
   const featuredItems = data.slice(0, 3);
+  //recent items state
+  const recentItems = () => {
+    const sorted = data.sort((a, b) => {
+      return (
+        new Date(a.registered).getTime() - new Date(b.registered).getTime()
+      );
+    });
+    const items = sorted.reverse().slice(0, 3);
+    return items;
+  };
+  //categories state
+  const getCategories = () => {
+    const categoryNames = [];
+    const categoriesArray = [];
+    for (let i = 0; i < blogData.length; i++) {
+      if (!categoryNames.includes(blogData[i].category)) {
+        categoryNames.push(blogData[i].category);
+      }
+    }
+
+    categoryNames.map((name) => {
+      let count = 0;
+      blogData.map((blogItemObject) => {
+        if (name === blogItemObject.category) {
+          count++;
+        }
+      });
+      return categoriesArray.push({ categoryName: name, categoryCount: count });
+    });
+    return categoriesArray;
+  };
   return (
     <>
       <Featured items={featuredItems} />
@@ -68,7 +99,7 @@ const Home = () => {
             pageNumber={pageNumber}
           />
         </div>
-        <Aside />
+        <Aside recentItems={recentItems()} getCategories={getCategories()} />
       </div>
     </>
   );

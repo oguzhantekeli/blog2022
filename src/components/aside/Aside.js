@@ -2,7 +2,7 @@ import "./aside.css";
 import recentThumb from "../../images/blogthumb.png";
 import adv from "../../images/header-image.png";
 import socialImage from "../../images/footer-image.png";
-const Aside = () => {
+const Aside = ({ recentItems, getCategories }) => {
   return (
     <>
       <div className="aside">
@@ -18,40 +18,19 @@ const Aside = () => {
         <div className="recent-posts">
           <h2>Recent Posts</h2>
           <div className="recent-posts-items">
-            <div className="recent-post-item">
-              <div className="recent-thumb">
-                <img src={recentThumb} alt="recentitem" />
-              </div>
-              <div className="recent-post-text">
-                <div className="recent-post-title">
-                  blog title 001 goes here
+            {recentItems.map((item) => {
+              return (
+                <div className="recent-post-item" key={item.id}>
+                  <div className="recent-thumb">
+                    <img src={recentThumb} alt={item.title} />
+                  </div>
+                  <div className="recent-post-text">
+                    <div className="recent-post-title">{item.title}</div>
+                    <div className="recent-post-date">{item.registered}</div>
+                  </div>
                 </div>
-                <div className="recent-post-date">11.12.2020</div>
-              </div>
-            </div>
-            <div className="recent-post-item">
-              <div className="recent-thumb">
-                <img src={recentThumb} alt="recentitem" />
-              </div>
-              <div className="recent-post-text">
-                <div className="recent-post-title">
-                  blog title 002 goes here
-                </div>
-                <div className="recent-post-date">11.12.2020</div>
-              </div>
-            </div>
-            <div className="recent-post-item">
-              <div className="recent-thumb">
-                <img src={recentThumb} alt="recentitem" />
-              </div>
-              <div className="recent-post-text">
-                <div className="recent-post-title">
-                  blog title 003 goes here title 003 goes heretitle 003 goes
-                  heretitle 003 goes heretitle 003 goes here
-                </div>
-                <div className="recent-post-date">11.12.2020</div>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </div>
         <div className="advertise">
@@ -71,26 +50,15 @@ const Aside = () => {
         <div className="aside-categories">
           <h2>Categories</h2>
           <div className="aside-category-list">
-            <div className="aside-category-item">
-              <a href="./">
-                Category Name 1 <span>(22)</span>
-              </a>
-            </div>
-            <div className="aside-category-item">
-              <a href="./">
-                Category Name 2 <span>(14)</span>
-              </a>
-            </div>
-            <div className="aside-category-item">
-              <a href="./">
-                Category Name 3 <span>(33)</span>
-              </a>
-            </div>
-            <div className="aside-category-item">
-              <a href="./">
-                Category Name 4 <span>(72)</span>
-              </a>
-            </div>
+            {getCategories.map((item, idx) => {
+              return (
+                <div className="aside-category-item" key={idx}>
+                  <a href="./">
+                    {item.categoryName} <span>({item.categoryCount})</span>
+                  </a>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
