@@ -15,3 +15,9 @@
   transition: all.3s;
   cursor: pointer;
 }
+.blog-pagination .active {
+  background-color: #3f3f3f;
+  color: #fff;
+  transition: all.3s;
+  cursor: pointer;
+}

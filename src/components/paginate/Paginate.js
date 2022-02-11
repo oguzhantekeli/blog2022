@@ -24,6 +24,7 @@ const Paginate = ({
         {pageNums.map((item) => {
           return (
             <button
+              className={item === pageNumber ? "active" : ""}
               key={item}
               onClick={() => {
                 changePage(item);

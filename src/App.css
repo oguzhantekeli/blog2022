@@ -13,3 +13,6 @@ a:visited {
   all: inherit;
   text-decoration: none;
 }
+html {
+  scroll-behavior: smooth;
+}
