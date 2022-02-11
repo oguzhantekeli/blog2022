@@ -65,9 +65,9 @@ const Home = () => {
       }
     }
 
-    categoryNames.map((name) => {
+    categoryNames.forEach((name) => {
       let count = 0;
-      blogData.map((blogItemObject) => {
+      blogData.forEach((blogItemObject) => {
         if (name === blogItemObject.category) {
           count++;
         }
