@@ -1,22 +1,29 @@
 import React from "react";
 import "./paginate.css";
-const Paginate = ({
+import {
   changePage,
-  itemsLength,
-  perPage,
-  nextPage,
   prevPage,
+  nextPage,
+} from "../../actions/PaginationActions";
+
+const Paginate = ({
+  blogData,
+  refItem,
+  perPage,
   pageNumber,
+  setPageNumber,
 }) => {
   const pageNums = [];
-  for (let i = 1; i <= Math.ceil(itemsLength / perPage); i++) {
+  for (let i = 1; i <= Math.ceil(blogData.length / perPage); i++) {
     pageNums.push(i);
   }
   return (
     <>
       <div className="blog-pagination">
         {pageNumber > 1 ? (
-          <button onClick={() => prevPage()}>Previous</button>
+          <button onClick={() => prevPage(pageNumber, setPageNumber, refItem)}>
+            Previous
+          </button>
         ) : (
           ""
         )}
@@ -27,7 +34,7 @@ const Paginate = ({
               className={item === pageNumber ? "active" : ""}
               key={item}
               onClick={() => {
-                changePage(item);
+                changePage(item, setPageNumber, refItem);
               }}
             >
               {item}
@@ -35,7 +42,9 @@ const Paginate = ({
           );
         })}
         {pageNumber < pageNums.length ? (
-          <button onClick={() => nextPage()}>Next</button>
+          <button onClick={() => nextPage(pageNumber, setPageNumber, refItem)}>
+            Next
+          </button>
         ) : (
           ""
         )}

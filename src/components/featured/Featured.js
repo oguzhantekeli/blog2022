@@ -1,5 +1,7 @@
 import "./featured.css";
-const Featured = ({ items }) => {
+const Featured = ({ featuredItems }) => {
+  //featured items state
+  const items = featuredItems.slice(0, 3);
   return (
     <>
       <div className="featured">

@@ -2,7 +2,9 @@ import "./aside.css";
 import recentThumb from "../../images/blogthumb.png";
 import adv from "../../images/header-image.png";
 import socialImage from "../../images/footer-image.png";
-const Aside = ({ recentItems, getCategories }) => {
+
+import { getCategories, getRecentItems } from "../../actions/BlogActions";
+const Aside = ({ asideData }) => {
   return (
     <>
       <div className="aside">
@@ -18,7 +20,7 @@ const Aside = ({ recentItems, getCategories }) => {
         <div className="recent-posts">
           <h2>Recent Posts</h2>
           <div className="recent-posts-items">
-            {recentItems.map((item) => {
+            {getRecentItems(asideData).map((item) => {
               return (
                 <div className="recent-post-item" key={item.id}>
                   <div className="recent-thumb">
@@ -50,7 +52,7 @@ const Aside = ({ recentItems, getCategories }) => {
         <div className="aside-categories">
           <h2>Categories</h2>
           <div className="aside-category-list">
-            {getCategories.map((item, idx) => {
+            {getCategories(asideData).map((item, idx) => {
               return (
                 <div className="aside-category-item" key={idx}>
                   <a href="./">

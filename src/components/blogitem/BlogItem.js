@@ -16,7 +16,7 @@ const BlogItem = ({ data }) => {
           <div className="blog-abstract">{data.text}</div>
           <div className="blog-item-meta">
             <p>
-              Read count: 123 / {data.registered} / {data.author}
+              {data.registered} / {data.author}
             </p>
           </div>
         </div>
