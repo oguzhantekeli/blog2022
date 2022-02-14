@@ -1,76 +1,66 @@
+import React from "react";
+import { useParams } from "react-router-dom";
 import "./blogdetail.css";
 import Aside from "../aside/Aside";
-import blogImage from "../../images/header-image.png";
 import Comments from "../comments/Comments";
-const BlogDetail = () => {
+import { getBlogItemData } from "../../actions/BlogActions";
+
+const BlogDetail = ({ blogData }) => {
+  let blogItemId = useParams();
+  const item = getBlogItemData(blogData, blogItemId.blogItemId);
+  const itemTags = item.tags.split(",");
   return (
     <>
-      <div className="blog-detail">
-        <div className="blog-deatail-header">
-          <div className="category-badge">Category Name</div>
-          <div className="blog-title">
-            <h2>Category Title</h2>
+      <div className="blog-detail-page">
+        <div className="blog-detail">
+          <div className="blog-deatail-header">
+            <div className="category-badge">{item.category}</div>
+            <div className="blog-title">
+              <h2>{item.title}</h2>
+            </div>
+            <div className="blog-item-meta">
+              <p>
+                {item.registered} / {item.author}
+              </p>
+            </div>
+            <div className="blog-detail-social-share">
+              <div className="social-share">
+                <i className="fab fa-facebook-square"></i>
+              </div>
+              <div className="social-share">
+                <i className="fab fa-twitter-square"></i>
+              </div>
+              <div className="social-share">
+                <i className="fab fa-instagram-square"></i>
+              </div>
+            </div>
           </div>
-          <div className="blog-item-meta">
-            <p>11.12.2020 / author name / read</p>
+          <div className="blog-detail-content">
+            <div className="blog-detail-image">
+              <img src={item.imageBigUrl} alt={item.title} />
+            </div>
+            <div className="blog-detail-text">
+              <p>{item.text}</p>
+            </div>
           </div>
-          <div className="blog-detail-social-share">
-            <div className="social-share">Facebook</div>
-            <div className="social-share">Twitter</div>
-            <div className="social-share">Instagram</div>
+          <div className="blog-detail-tags">
+            <div className="detail-tag-title">
+              <p>Tags</p>
+            </div>
+            <div className="detail-tags">
+              {itemTags.map((tag, idx) => {
+                return (
+                  <div className="tag-item" key={idx}>
+                    {tag}
+                  </div>
+                );
+              })}
+            </div>
           </div>
+          <Comments commentsData={item.comments} />
         </div>
-        <div className="blog-detail-content">
-          <div className="blog-detail-image">
-            <img src={blogImage} alt="blogimage" />
-          </div>
-          <div className="blog-detail-text">
-            <p>
-              tor faucibus a. Vivamus vulputate feugiat risus vel dapibus. Ut
-              nec nisi nec lorem consequat ullamcorper. Aenean hendrerit nisl
-              sed lacus iaculis sodales. Morbi finibus elementum consequat.
-              Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-              posuere cubilia curae; Praesent fringilla at ante ultricies
-              auctor. Mauris eu dolor rhoncus, venenatis dolor non, interdum ex.
-              Quisque non enim nec metus sagittis fringilla ut laoreet purus.
-              Suspendisse at ipsum tincidunt, placerat ipsum tempor, pharetra
-              ipsum. Mauris at nisi commodo urna blandit pellentesque. Nullam
-              vitae quam eget libero congue commodo quis eu eros. Nulla
-              facilisi. Nulla sit amet sem sed felis tincidunt pretium. Nulla
-              facilisi. Nulla at lobortis nisi. Quisque sollicitudin feugiat
-              fermentum. Quisque eget enim sodales, mollis mi in, ornare ex.
-              Mauris ligula libero, bibendum ac gravida et, accumsan in velit.
-              Vivamus velit mi, gravida porttitor lorem ut, eleifend imperdiet
-              est. Nulla sed ipsum vel quam feugiat mollis at nec lacus. Mauris
-              libero massa, tincidunt eget condimentum finibus, malesuada at
-              risus. Vestibulum quis viverra enim. Donec ut diam sit amet arcu
-              blandit viverra scelerisque a lacus. Etiam tempor consectetur
-              magna, sed aliquet justo mattis eget. Fusce accumsan mauris vitae
-              maximus interdum. Proin cursus ultricies hendrerit. Curabitur
-              vulputate elit a est imperdiet fringilla.
-            </p>
-          </div>
-        </div>
-        <div className="blog-detail-tags">
-          <div className="detail-tag-title">
-            <p>Tags</p>
-          </div>
-          <div className="detail-tags">
-            <div className="tag-item">tag001</div>
-            <div className="tag-item">tag002</div>
-            <div className="tag-item">tag003</div>
-            <div className="tag-item">tag004</div>
-            <div className="tag-item">tag005</div>
-          </div>
-        </div>
-        <div className="blog-detail-social-share">
-          <div className="social-share">Facebook</div>
-          <div className="social-share">Twitter</div>
-          <div className="social-share">Instagram</div>
-        </div>
-        <Comments />
+        <Aside asideData={blogData} />
       </div>
-      <Aside />
     </>
   );
 };

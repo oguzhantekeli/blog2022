@@ -22,15 +22,17 @@ const Aside = ({ asideData }) => {
           <div className="recent-posts-items">
             {getRecentItems(asideData).map((item) => {
               return (
-                <div className="recent-post-item" key={item.id}>
-                  <div className="recent-thumb">
-                    <img src={recentThumb} alt={item.title} />
+                <a href={`/blog/${item.id}`} key={item.id}>
+                  <div className="recent-post-item">
+                    <div className="recent-thumb">
+                      <img src={recentThumb} alt={item.title} />
+                    </div>
+                    <div className="recent-post-text">
+                      <div className="recent-post-title">{item.title}</div>
+                      <div className="recent-post-date">{item.registered}</div>
+                    </div>
                   </div>
-                  <div className="recent-post-text">
-                    <div className="recent-post-title">{item.title}</div>
-                    <div className="recent-post-date">{item.registered}</div>
-                  </div>
-                </div>
+                </a>
               );
             })}
           </div>

@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import "./home.css";
 import Bloglist from "../bloglist/BlogList";
 import Aside from "../aside/Aside";
 import Featured from "../featured/Featured";
-import Paginate from "../paginate/Paginate";
 
 const Home = ({ blogData }) => {
   const homeRef = useRef(null);

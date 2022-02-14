@@ -27,3 +27,10 @@ export const getRecentItems = (data) => {
   const items = sorted.reverse().slice(0, 3);
   return items;
 };
+
+export const getBlogItemData = (data, itemId) => {
+  const itemData = data.filter((item) => {
+    return item.id === itemId;
+  });
+  return itemData[0];
+};

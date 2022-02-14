@@ -18,7 +18,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home blogData={blogData} />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/blog/:id" element={<BlogDetail />} />
+          <Route
+            path="/blog/:blogItemId"
+            element={<BlogDetail blogData={blogData} />}
+          />
           <Route path="/search/:searchTerm" element={<Search />} />
           <Route path="*" element={<div>error</div>} />
         </Routes>
