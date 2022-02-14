@@ -9,6 +9,7 @@ const BlogDetail = ({ blogData }) => {
   let blogItemId = useParams();
   const item = getBlogItemData(blogData, blogItemId.blogItemId);
   const itemTags = item.tags.split(",");
+  const itemComments = item.comments;
   return (
     <>
       <div className="blog-detail-page">
@@ -50,14 +51,16 @@ const BlogDetail = ({ blogData }) => {
             <div className="detail-tags">
               {itemTags.map((tag, idx) => {
                 return (
-                  <div className="tag-item" key={idx}>
-                    {tag}
-                  </div>
+                  <a href={`/search/${tag}`}>
+                    <div className="tag-item" key={idx}>
+                      {tag}
+                    </div>
+                  </a>
                 );
               })}
             </div>
           </div>
-          <Comments commentsData={item.comments} />
+          <Comments commentsData={itemComments} />
         </div>
         <Aside asideData={blogData} />
       </div>
