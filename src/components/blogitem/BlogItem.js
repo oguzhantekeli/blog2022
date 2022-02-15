@@ -8,7 +8,7 @@ const BlogItem = ({ data }) => {
         </div>
         <div className="blog-item-text">
           <div className="category-badge">
-            <a href="./">{data.category}</a>
+            <a href={`/category/${data.category}`}>{data.category}</a>
           </div>
           <div className="blog-title">
             <a href={`/blog/${data.id}`}>{data.title}</a>

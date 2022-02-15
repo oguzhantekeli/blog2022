@@ -48,3 +48,12 @@ export const searchBlog = (data, term) => {
     return window.location.replace("/error");
   }
 };
+export const searchBlogCategory = (data, term) => {
+  if (term !== "" || term !== undefined) {
+    return data.filter((item) => {
+      return item.category.includes(term);
+    });
+  } else {
+    return window.location.replace("/error");
+  }
+};

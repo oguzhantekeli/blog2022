@@ -50,16 +50,10 @@ const Header = () => {
               <a href="/">Home</a>
             </li>
             <li className="nav-item">
-              <a href="./">Category 1</a>
+              <a href="/profile">Profile</a>
             </li>
             <li className="nav-item">
-              <a href="./">Category 2</a>
-            </li>
-            <li className="nav-item">
-              <a href="./">Category 3</a>
-            </li>
-            <li className="nav-item">
-              <a href="./">Contact</a>
+              <a href="/contact">Contact</a>
             </li>
           </ul>
         </nav>

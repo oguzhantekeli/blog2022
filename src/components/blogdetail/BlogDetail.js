@@ -51,10 +51,8 @@ const BlogDetail = ({ blogData }) => {
             <div className="detail-tags">
               {itemTags.map((tag, idx) => {
                 return (
-                  <a href={`/search/${tag}`}>
-                    <div className="tag-item" key={idx}>
-                      {tag}
-                    </div>
+                  <a href={`/search/${tag}`} key={idx}>
+                    <div className="tag-item">{tag}</div>
                   </a>
                 );
               })}

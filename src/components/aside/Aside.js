@@ -71,7 +71,7 @@ const Aside = ({ asideData }) => {
             {getCategories(asideData).map((item, idx) => {
               return (
                 <div className="aside-category-item" key={idx}>
-                  <a href="./">
+                  <a href={`/category/${item.categoryName}`}>
                     {item.categoryName} <span>({item.categoryCount})</span>
                   </a>
                 </div>
