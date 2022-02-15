@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import "./aside.css";
 import recentThumb from "../../images/blogthumb.png";
 import adv from "../../images/header-image.png";
@@ -5,16 +6,29 @@ import socialImage from "../../images/footer-image.png";
 
 import { getCategories, getRecentItems } from "../../actions/BlogActions";
 const Aside = ({ asideData }) => {
+  const [searchTerm, setSearchTerm] = useState("");
   return (
     <>
       <div className="aside">
         <div className="aside-search">
           <h2>Search</h2>
           <div className="search-group">
-            <input type="text" placeholder="search blog..." />
-            <button className="btn-aside-search">
-              Search <i className="fas fa-search"></i>
-            </button>
+            <form action={`/search/${searchTerm}`}>
+              <input
+                type="text"
+                placeholder="search blog..."
+                name="search"
+                required="required"
+                autoComplete="off"
+                value={searchTerm}
+                onChange={(e) => {
+                  setSearchTerm(e.target.value);
+                }}
+              />
+              <button className="btn-aside-search">
+                Search <i className="fas fa-search"></i>
+              </button>
+            </form>
           </div>
         </div>
         <div className="recent-posts">

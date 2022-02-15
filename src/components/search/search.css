@@ -1,0 +1,16 @@
+.search-page {
+  display: flex;
+  flex-direction: row;
+}
+.search-results {
+  display: block;
+  width: 100%;
+  margin: 10px 30px;
+}
+.search-results h2 {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+}
+.search-results p {
+  font-size: 0.75rem;
+}

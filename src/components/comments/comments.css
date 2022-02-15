@@ -74,6 +74,15 @@
   border: none;
   font-size: 1.1rem;
   border-bottom: 2px solid #818181;
+  transition: all 0.3s;
+  padding: 5px;
+}
+.form-group input:focus {
+  outline: none;
+  border: 1px solid #818181;
+  padding: 5px;
+  border-radius: 10px;
+  transition: all 0.3s;
 }
 .form-group textarea {
   width: 100%;
@@ -81,6 +90,14 @@
   max-width: 50%;
   margin-bottom: 10px;
   border: 2px solid #818181;
+  transition: all 0.3s;
+}
+.form-group textarea:focus {
+  transition: all 0.3s;
+  border: 1px solid #818181;
+  outline: none;
+  border-radius: 10px;
+  padding: 10px;
 }
 .post-comment-form button {
   outline: none;
@@ -90,4 +107,10 @@
   color: #fff;
   width: 30%;
   padding: 5px;
+  transition: all 0.3s;
+}
+.post-comment-form button:hover {
+  opacity: 0.8;
+  border-radius: 10px;
+  transition: all 0.3s;
 }

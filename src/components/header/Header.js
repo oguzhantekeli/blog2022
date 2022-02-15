@@ -1,6 +1,8 @@
+import React, { useState } from "react";
 import "./header.css";
 import headerImage from "../../images/header-image.png";
 const Header = () => {
+  const [searchTerm, setSearchTerm] = useState("");
   return (
     <>
       <div className="header-top">
@@ -22,12 +24,17 @@ const Header = () => {
           </div>
         </div>
         <div className="search-bar">
-          <form action="" method="post">
+          <form action={`/search/${searchTerm}`}>
             <input
               type="text"
               placeholder="search"
-              name="search"
+              required="required"
+              name="headerSearch"
               autoComplete="off"
+              value={searchTerm}
+              onChange={(e) => {
+                setSearchTerm(e.target.value);
+              }}
             />
             <button className="btn btn-search">Search</button>
           </form>

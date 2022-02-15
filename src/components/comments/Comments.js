@@ -37,6 +37,7 @@ const Comments = ({ commentsData }) => {
                 placeholder="name"
                 name="name"
                 required="required"
+                autoComplete="off"
               />
             </div>
             <div className="form-group">
@@ -45,6 +46,7 @@ const Comments = ({ commentsData }) => {
                 placeholder="email"
                 name="email"
                 required="required"
+                autoComplete="off"
               />
             </div>
             <div className="form-group">

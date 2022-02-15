@@ -34,3 +34,17 @@ export const getBlogItemData = (data, itemId) => {
   });
   return itemData[0];
 };
+
+//search state
+export const searchBlog = (data, term) => {
+  if (term !== "" || term !== undefined) {
+    return data.filter((item) => {
+      return (
+        item.text.toLowerCase().includes(term.toLowerCase().trim()) ||
+        item.title.toLowerCase().includes(term.toLowerCase().trim())
+      );
+    });
+  } else {
+    return window.location.replace("/error");
+  }
+};
