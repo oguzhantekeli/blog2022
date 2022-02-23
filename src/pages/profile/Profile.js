@@ -42,7 +42,7 @@ const Profile = () => {
             <a href="./editprofile">Edit Profile</a>
           </div>
           <div className="change-password">
-            <a href="./">Change Password</a>
+            <a href="./changepassword">Change Password</a>
           </div>
         </div>
         <div className="profile-right">
