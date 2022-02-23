@@ -3,7 +3,7 @@ const Contact = () => {
   return (
     <>
       <div className="contact">
-        <div className="gmap">googlemap comes here</div>
+        <div className="gmap"></div>
         <div className="contact-services">
           <div className="service-item">
             <h3>item 1 title</h3>
@@ -34,32 +34,40 @@ const Contact = () => {
             </p>
           </div>
         </div>
-        <div className="contact-form">
-          <div className="form-body">
-            <form className="contact-form-group" method="post" action="">
-              <div className="form-group">
-                <input type="text" placeholder="name" name="name" />
-              </div>
-              <div className="form-group">
-                <input type="email" placeholder="email" name="email" />
-              </div>
-              <div className="form-group">
-                <input type="text" placeholder="phone" name="phone" />
-              </div>
-              <div className="form-group">
-                <input type="text" placeholder="subject" name="subject" />
-              </div>
-              <div className="form-group">
-                <textarea
-                  rows="5"
-                  placeholder="message"
-                  name="message"
-                ></textarea>
-              </div>
-              <button className="btn btn-submit" type="submit" name="submit">
-                Submit
-              </button>
-            </form>
+        <div className="contact-section">
+          <div className="contact-form">
+            <div className="contact-title">
+              <h3>Contact Us</h3>
+            </div>
+            <div className="form-body">
+              <form className="contact-form-group" method="post" action="">
+                <div className="form-group">
+                  <input type="text" placeholder="name" name="name" />
+                </div>
+                <div className="form-group">
+                  <input type="email" placeholder="email" name="email" />
+                </div>
+                <div className="form-group">
+                  <input type="text" placeholder="phone" name="phone" />
+                </div>
+                <div className="form-group">
+                  <input type="text" placeholder="subject" name="subject" />
+                </div>
+                <div className="form-group">
+                  <textarea
+                    rows="5"
+                    placeholder="message"
+                    name="message"
+                  ></textarea>
+                </div>
+                <button className="btn-submit" type="submit" name="submit">
+                  Submit
+                </button>
+              </form>
+            </div>
+          </div>
+          <div className="contact-aside-image">
+            <img src="http://placehold.it/500x500" alt="contactus" />
           </div>
         </div>
       </div>

@@ -8,6 +8,7 @@
   border: 1px solid #000;
   margin: 10px;
   transition: all.3s;
+  border-radius: 5px;
 }
 .blog-pagination button:hover {
   background-color: #3f3f3f;

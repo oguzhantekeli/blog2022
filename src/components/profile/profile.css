@@ -1,0 +1,143 @@
+.profile {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  max-width: 100%;
+  margin: 20px auto;
+}
+.profile-left {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 10px;
+  min-width: 30%;
+  max-width: 30%;
+}
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+  margin-right: 10px;
+  width: 100%;
+}
+.profile-info img {
+  border-radius: 100px;
+  margin-bottom: 20px;
+}
+.profile-info h4 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 5px;
+}
+.profile-info p {
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+.profile-social-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+.profile-social-links h3 {
+  font-size: 1.4rem;
+  flex: none;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.links-list {
+  list-style-type: none;
+  padding: 5px;
+  width: 90%;
+}
+.link-item {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 2px solid #666;
+  width: 100%;
+  margin-bottom: 10px;
+  align-items: baseline;
+}
+.link-item h4 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.link-item a {
+  background-color: #999;
+  padding: 10px;
+  min-width: 50%;
+  text-align: right;
+  border-radius: 10px;
+}
+.edit-profile,
+.change-password {
+  width: 100%;
+  background-color: #4b7196;
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+}
+.change-password {
+  background-color: #964b4b;
+  margin-top: 20px;
+}
+
+.profile-right {
+  min-width: 60%;
+  max-width: 60%;
+  display: flex;
+  /* background-color: #4b7196; */
+  flex-direction: column;
+}
+.profile-aboutme {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 5px solid #999;
+}
+.profile-aboutme h3 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.profile-aboutme p {
+  text-align: justify;
+}
+.author-blogs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.author-blogs > h3 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.author-blog-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  border: 1px solid #666;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.author-blog-item h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.author-blog-item .blog-text {
+  margin-bottom: 20px;
+}
+.author-blog-item .blog-date {
+  font-size: 0.75rem;
+}

@@ -92,3 +92,7 @@ header nav {
   border-bottom: 2px solid #3f3f3f;
   color: #3f3f3f;
 }
+.register-login {
+  flex-grow: 1;
+  text-align: right;
+}

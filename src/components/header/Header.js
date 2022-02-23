@@ -50,10 +50,14 @@ const Header = () => {
               <a href="/">Home</a>
             </li>
             <li className="nav-item">
-              <a href="/profile">Profile</a>
+              <a href="/contact">Contact</a>
             </li>
             <li className="nav-item">
-              <a href="/contact">Contact</a>
+              <a href="/profile">Profile</a>
+            </li>
+            <li className="nav-item register-login">
+              <a href="/login">Login</a>&nbsp;&nbsp;
+              <a href="/register">Sign Up</a>
             </li>
           </ul>
         </nav>

@@ -8,8 +8,11 @@ import Home from "./components/home/Home";
 import Contact from "./components/contact/Contact";
 import BlogDetail from "./components/blogdetail/BlogDetail";
 import Search from "./components/search/Search";
+import Profile from "./components/profile/Profile";
+import Login from "./components/login/Login";
+import Register from "./components/register/Register";
+import EditPorfile from "./components/editprofile/EditProfile";
 import blogData from "./blogdata.json";
-import { Profile } from "./components/profile/Profile";
 
 function App() {
   return (
@@ -20,6 +23,9 @@ function App() {
           <Route path="/" element={<Home blogData={blogData} />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/editprofile" element={<EditPorfile />} />
           <Route
             path="/blog/:blogItemId"
             element={<BlogDetail blogData={blogData} />}

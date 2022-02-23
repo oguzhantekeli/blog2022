@@ -1,0 +1,43 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 20px auto;
+}
+.login h3 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #666;
+  padding-bottom: 20px;
+}
+.login-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 20px 10px;
+}
+.login-form .form-group input {
+  min-width: 80%;
+}
+.login-form p {
+  font-size: 0.75rem;
+  margin-top: 20px;
+}
+.login-form button {
+  outline: none;
+  cursor: pointer;
+  border: none;
+  background-color: #666;
+  color: #fff;
+  padding: 10px;
+  max-width: 50%;
+  min-width: 50%;
+  border-radius: 10px;
+}
