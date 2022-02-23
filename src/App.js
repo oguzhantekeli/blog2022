@@ -4,14 +4,14 @@ import "./reset.css";
 import "./app.css";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
-import Home from "./components/home/Home";
-import Contact from "./components/contact/Contact";
-import BlogDetail from "./components/blogdetail/BlogDetail";
-import Search from "./components/search/Search";
-import Profile from "./components/profile/Profile";
-import Login from "./components/login/Login";
-import Register from "./components/register/Register";
-import EditPorfile from "./components/editprofile/EditProfile";
+import Home from "./pages/home/Home";
+import Contact from "./pages/contact/Contact";
+import BlogDetail from "./pages/blogdetail/BlogDetail";
+import Search from "./pages/search/Search";
+import Profile from "./pages/profile/Profile";
+import Login from "./pages/login/Login";
+import Register from "./pages/register/Register";
+import EditPorfile from "./pages/editprofile/EditProfile";
 import blogData from "./blogdata.json";
 
 function App() {

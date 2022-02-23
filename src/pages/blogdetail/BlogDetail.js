@@ -1,8 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import "./blogdetail.css";
-import Aside from "../aside/Aside";
-import Comments from "../comments/Comments";
+import Aside from "../../components/aside/Aside";
+import Comments from "../../components/comments/Comments";
 import { getBlogItemData } from "../../actions/BlogActions";
 
 const BlogDetail = ({ blogData }) => {

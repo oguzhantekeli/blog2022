@@ -1,8 +1,8 @@
 import { useRef } from "react";
 import { useParams } from "react-router-dom";
 import "./search.css";
-import Aside from "../aside/Aside";
-import Bloglist from "../bloglist/BlogList";
+import Aside from "../../components/aside/Aside";
+import Bloglist from "../../components/bloglist/BlogList";
 import { searchBlog, searchBlogCategory } from "../../actions/BlogActions";
 const Search = ({ blogData, type }) => {
   const searchPage = useRef(null);
