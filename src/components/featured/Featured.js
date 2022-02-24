@@ -4,6 +4,7 @@ const Featured = ({ featuredItems }) => {
   const items = featuredItems.slice(0, 3);
   return (
     <>
+      <h3 className="featured-title">Featured Blogs</h3>
       <div className="featured">
         {items.map((item, idx) => {
           return (
@@ -25,6 +26,7 @@ const Featured = ({ featuredItems }) => {
           );
         })}
       </div>
+      <hr />
     </>
   );
 };

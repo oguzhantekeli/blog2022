@@ -60,7 +60,10 @@ const Profile = () => {
             <h3>My Blogs</h3>
             <div className="author-blog-item">
               <a href="./">
-                <h3>blog title</h3>
+                <h3>
+                  blog title
+                  <span className="blogstatus">Published</span>
+                </h3>
                 <p className="blog-text">
                   nsectetur vestibulum id eu arcu. Suspendisse non placerat
                   urna. Fusce pharetra venenatis turpis, vel gravida arcu
@@ -71,7 +74,10 @@ const Profile = () => {
             </div>
             <div className="author-blog-item">
               <a href="./">
-                <h3>blog title</h3>
+                <h3>
+                  blog title
+                  <span className="blogstatus">Published</span>
+                </h3>
                 <p className="blog-text">
                   nsectetur vestibulum id eu arcu. Suspendisse non placerat
                   urna. Fusce pharetra venenatis turpis, vel gravida arcu
@@ -82,7 +88,10 @@ const Profile = () => {
             </div>
             <div className="author-blog-item">
               <a href="./">
-                <h3>blog title</h3>
+                <h3>
+                  blog title
+                  <span className="blogstatus">Published</span>
+                </h3>
                 <p className="blog-text">
                   nsectetur vestibulum id eu arcu. Suspendisse non placerat
                   urna. Fusce pharetra venenatis turpis, vel gravida arcu
@@ -93,7 +102,10 @@ const Profile = () => {
             </div>
             <div className="author-blog-item">
               <a href="./">
-                <h3>blog title</h3>
+                <h3>
+                  blog title
+                  <span className="blogstatus">Published</span>
+                </h3>
                 <p className="blog-text">
                   nsectetur vestibulum id eu arcu. Suspendisse non placerat
                   urna. Fusce pharetra venenatis turpis, vel gravida arcu
@@ -104,7 +116,10 @@ const Profile = () => {
             </div>
             <div className="author-blog-item">
               <a href="./">
-                <h3>blog title</h3>
+                <h3>
+                  blog title
+                  <span className="blogstatus">Published</span>
+                </h3>
                 <p className="blog-text">
                   nsectetur vestibulum id eu arcu. Suspendisse non placerat
                   urna. Fusce pharetra venenatis turpis, vel gravida arcu

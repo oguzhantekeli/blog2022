@@ -1,0 +1,80 @@
+.newblog {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.newblog h3 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+#image {
+  visibility: hidden;
+}
+.form-group label {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.form-group label[for="image"] {
+  background-color: #bd6c2a;
+  padding: 10px;
+  color: #fff;
+  transition: all 0.3s;
+  font-weight: unset;
+}
+.form-group label[for="image"]:hover {
+  transition: all 0.3s;
+  background-color: #4b2b11;
+  cursor: pointer;
+}
+.form-group textarea {
+  height: 70vh;
+  width: 90vw;
+}
+.fileselect {
+  margin-top: 20px;
+}
+.newblogbuttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px auto;
+}
+
+.newblogbuttons a {
+  border: 1px solid #000;
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px;
+  transition: all 0.3s;
+}
+.newblogbuttons a:hover {
+  transition: all 0.3s;
+  background-color: #181818;
+  color: #fff;
+}
+.savebuttons {
+  display: flex;
+}
+
+.savebuttons .savedraft {
+  background-color: #405ddb;
+}
+.savebuttons .publish {
+  background-color: #3b7026;
+}
+.savebuttons button {
+  transition: all 0.3s;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1.1rem;
+  margin: 0px 10px;
+  padding: 10px;
+}
+.savebuttons button:hover {
+  transition: all 0.3s;
+  opacity: 0.75;
+  cursor: pointer;
+}

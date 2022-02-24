@@ -26,7 +26,17 @@
   transition: all 0.5s;
 }
 .search-bar {
+  display: flex;
+  flex-direction: row;
   margin-right: 20px;
+  align-items: baseline;
+}
+.top-nav {
+  margin-right: 20px;
+}
+.top-nav a {
+  margin: 0px 10px;
+  color: #fff;
 }
 .search-bar input {
   margin-right: 20px;
@@ -70,19 +80,31 @@
   width: 50%;
   margin: auto;
 }
-header nav {
-  margin: 10px auto;
-  width: 100%;
+nav {
+  margin: 20px auto;
 }
 .navs {
   display: flex;
-  flex-direction: row;
-  width: 50%;
+  max-width: 100%;
   justify-content: center;
-  margin: 10px auto;
+  margin: 10px 20%;
 }
 .navs .nav-item {
   padding: 10px;
+}
+.navs .nav-item:last-child a,
+.navs .nav-item:last-child a:hover {
+  background-color: #377e47;
+  padding: 10px;
+  color: #fff;
+  border-radius: 10px;
+  border-bottom: none;
+}
+
+.navs .nav-item:last-child {
+  right: 0px;
+  position: absolute;
+  margin-right: 20px;
 }
 .navs .nav-item a {
   text-decoration: none;
@@ -91,8 +113,4 @@ header nav {
 .navs .nav-item a:hover {
   border-bottom: 2px solid #3f3f3f;
   color: #3f3f3f;
-}
-.register-login {
-  flex-grow: 1;
-  text-align: right;
 }

@@ -142,3 +142,8 @@
 .author-blog-item .blog-date {
   font-size: 0.75rem;
 }
+.blogstatus {
+  font-size: 0.75rem;
+  float: right;
+  color: #2d6428;
+}

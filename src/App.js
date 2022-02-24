@@ -13,6 +13,8 @@ import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import EditPorfile from "./pages/editprofile/EditProfile";
 import blogData from "./blogdata.json";
+import NewBlog from "./pages/newblog/NewBlog";
+import Categories from "./pages/categories/Categories";
 
 function App() {
   return (
@@ -26,6 +28,12 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/editprofile" element={<EditPorfile />} />
+          <Route path="/newblog" element={<NewBlog />} />
+          <Route
+            path="/categories"
+            element={<Categories blogData={blogData} />}
+          />
+          <Route path="/editblog/:blogItemId" element={<NewBlog />} />
           <Route
             path="/blog/:blogItemId"
             element={<BlogDetail blogData={blogData} />}
@@ -38,7 +46,7 @@ function App() {
             path="/category/:categoryName"
             element={<Search blogData={blogData} type="category" />}
           />
-          <Route path="*" element={<div>error</div>} />
+          <Route path="*" element={<div>404 - Page Not Found</div>} />
         </Routes>
         <Footer />
       </div>

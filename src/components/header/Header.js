@@ -24,6 +24,11 @@ const Header = () => {
           </div>
         </div>
         <div className="search-bar">
+          <div className="top-nav">
+            <a href="/profile">Profile</a>
+            <a href="/login">Login</a>
+            <a href="/register">Sign Up</a>
+          </div>
           <form action={`/search/${searchTerm}`}>
             <input
               type="text"
@@ -50,14 +55,13 @@ const Header = () => {
               <a href="/">Home</a>
             </li>
             <li className="nav-item">
+              <a href="/categories">Categories</a>
+            </li>
+            <li className="nav-item">
               <a href="/contact">Contact</a>
             </li>
             <li className="nav-item">
-              <a href="/profile">Profile</a>
-            </li>
-            <li className="nav-item register-login">
-              <a href="/login">Login</a>&nbsp;&nbsp;
-              <a href="/register">Sign Up</a>
+              <a href="/newblog">Post New Blog</a>
             </li>
           </ul>
         </nav>
