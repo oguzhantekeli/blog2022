@@ -23,6 +23,9 @@
   width: 100%;
   margin: 20px 10px;
 }
+.register-form .form-group {
+  min-width: 90%;
+}
 .register-form .form-group input {
   min-width: 80%;
 }

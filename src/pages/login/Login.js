@@ -1,25 +1,42 @@
+import React, { useState } from "react";
 import "./login.css";
 
 const Login = () => {
+  const [formData, setFormData] = useState({
+    useremail: "",
+    userpassword: "",
+  });
+  const onChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+  const onSubmit = (e) => {
+    e.preventDefault();
+  };
+  const { useremail, userpassword } = formData;
   return (
     <>
       <div className="login">
         <h3>Login Your Account</h3>
         <div className="login-section">
-          <form action="" method="post" className="login-form">
+          <form onSubmit={onSubmit} className="login-form">
             <div className="form-group">
               <input
                 type="text"
                 placeholder="Enter your email"
-                value=""
-                name="usermail"
+                value={useremail}
+                onChange={onChange}
+                name="useremail"
               />
             </div>
             <div className="form-group">
               <input
                 type="text"
                 placeholder="Enter password"
-                value=""
+                value={userpassword}
+                onChange={onChange}
                 name="userpassword"
               />
             </div>
