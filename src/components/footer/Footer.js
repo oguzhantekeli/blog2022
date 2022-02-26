@@ -35,10 +35,6 @@ const Footer = () => {
             </a>
           </div>
         </div>
-        <div className="footer-subscribe">
-          <input type="email" placeholder="enter your e-mail here.." />
-          <button>Subscribe</button>
-        </div>
         <div className="copyright">
           <p>All rights reserved. Blog by sko 2022.</p>
         </div>

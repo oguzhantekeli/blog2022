@@ -38,29 +38,7 @@
   margin-bottom: 10px;
   font-size: 2.5rem;
 }
-.footer-subscribe {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 30%;
-  margin-bottom: 20px;
-}
-.footer-subscribe input {
-  width: 80%;
-  outline: none;
-  border: none;
-  border-bottom: 2px solid #fff;
-  color: #fff;
-  background-color: #000;
-  font-size: 1.3rem;
-}
-.footer-subscribe button {
-  width: 20%;
-  outline: none;
-  background-color: #000;
-  border: 1px solid #fff;
-  color: #fff;
-}
+
 .copyright {
   margin: 20px auto;
 }
