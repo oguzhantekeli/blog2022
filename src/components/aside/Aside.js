@@ -54,17 +54,6 @@ const Aside = ({ asideData }) => {
         <div className="advertise">
           <img src={adv} alt="advertiseimage" />
         </div>
-        <div className="aside-social-feed">
-          <img src={socialImage} alt="socialfeed" />
-          <img src={socialImage} alt="socialfeed" />
-          <img src={socialImage} alt="socialfeed" />
-          <img src={socialImage} alt="socialfeed" />
-          <img src={socialImage} alt="socialfeed" />
-          <img src={socialImage} alt="socialfeed" />
-          <img src={socialImage} alt="socialfeed" />
-          <img src={socialImage} alt="socialfeed" />
-          <img src={socialImage} alt="socialfeed" />
-        </div>
         <div className="aside-categories">
           <h2>Categories</h2>
           <div className="aside-category-list">

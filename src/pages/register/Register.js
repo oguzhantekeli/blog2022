@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import { register, reset } from "../../features/auth/authSlice";
+import { toast } from "react-toastify";
+import { Oval } from "react-loader-spinner";
 import "./register.css";
 
 // todo:
@@ -48,6 +49,14 @@ const Register = () => {
     }
     dispatch(reset());
   }, [user, isError, isSuccess, message, navigate, dispatch]);
+
+  if (isloading) {
+    return (
+      <div className="spinna">
+        <Oval color="#00BFFF" height={500} width={500} />
+      </div>
+    );
+  }
 
   return (
     <>

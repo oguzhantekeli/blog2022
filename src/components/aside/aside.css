@@ -77,16 +77,6 @@
 .advertise img {
   width: 100%;
 }
-.aside-social-feed {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  margin-bottom: 20px;
-}
-.aside-social-feed img {
-  margin: 0px auto;
-  width: 100%;
-  border: 1px solid #858585;
-}
 .aside-categories {
   display: flex;
   flex-direction: column;

@@ -23,6 +23,10 @@
   width: 100%;
   margin: 20px 10px;
 }
+.spinna {
+  display: flex;
+  justify-content: center;
+}
 .register-form .form-group {
   min-width: 90%;
 }
