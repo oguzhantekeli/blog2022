@@ -1,8 +1,23 @@
 import React, { useState } from "react";
 import "./header.css";
 import headerImage from "../../images/header-image.png";
+import { useSelector, useDispatch } from "react-redux";
+import { logout, reset } from "../../features/auth/authSlice";
+import { useNavigate } from "react-router-dom";
+
 const Header = () => {
   const [searchTerm, setSearchTerm] = useState("");
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const { user } = useSelector((state) => state.auth);
+  const Onlogout = () => {
+    dispatch(logout());
+    dispatch(reset());
+    navigate("/");
+  };
+
   return (
     <>
       <div className="header-top">
@@ -25,9 +40,19 @@ const Header = () => {
         </div>
         <div className="search-bar">
           <div className="top-nav">
-            <a href="/profile">Profile</a>
-            <a href="/login">Login</a>
-            <a href="/register">Sign Up</a>
+            {user ? (
+              <>
+                <a href="/profile">{user.userName}</a>
+                <button className="btn-logout" onClick={Onlogout}>
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <a href="/login">Login</a>
+                <a href="/register">Sign Up</a>
+              </>
+            )}
           </div>
           <form action={`/search/${searchTerm}`}>
             <input

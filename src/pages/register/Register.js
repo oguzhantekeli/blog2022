@@ -6,9 +6,6 @@ import { toast } from "react-toastify";
 import { Oval } from "react-loader-spinner";
 import "./register.css";
 
-// todo:
-//logout actions
-
 const Register = () => {
   const [formData, setFormData] = useState({
     userName: "",
@@ -41,7 +38,6 @@ const Register = () => {
   };
   useEffect(() => {
     if (isError) {
-      console.log("useeffect message:", message);
       toast.error(message);
     }
     if (isSuccess || user) {
