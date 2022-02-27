@@ -55,7 +55,7 @@
   font-size: 1.2rem;
   padding: 5px 10px;
 }
-.search-bar button {
+.search-bar .btn-search {
   margin-right: 20px;
   border: 1px solid #dbdbdb;
   transition: all 0.5s;
@@ -63,7 +63,7 @@
   color: #fff;
   background-color: #566661;
 }
-.search-bar button:hover {
+.search-bar .btn-search:hover {
   border: 1px solid #b3b8b6;
   transition: all 0.5s;
   border-radius: 10px;
@@ -113,4 +113,12 @@ nav {
 .navs .nav-item a:hover {
   border-bottom: 2px solid #3f3f3f;
   color: #3f3f3f;
+}
+.btn-logout {
+  background-color: #566661;
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  color: #ff5c2a;
 }

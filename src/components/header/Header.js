@@ -66,7 +66,7 @@ const Header = () => {
                 setSearchTerm(e.target.value);
               }}
             />
-            <button className="btn btn-search">Search</button>
+            <button className="btn-search">Search</button>
           </form>
         </div>
       </div>
