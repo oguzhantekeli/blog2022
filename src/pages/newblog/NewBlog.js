@@ -1,6 +1,14 @@
 import "./newblog.css";
-
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 const NewBlog = () => {
+  const { user } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    return !user ? navigate("/login") : null;
+  }, [user, navigate]);
   return (
     <>
       <div className="newblog">
