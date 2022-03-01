@@ -15,9 +15,9 @@ import Profile from "./pages/profile/Profile";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import EditPorfile from "./pages/editprofile/EditProfile";
-import blogData from "./blogdata.json";
 import NewBlog from "./pages/newblog/NewBlog";
 import Categories from "./pages/categories/Categories";
+import blogData from "./blogdata.json";
 
 function App() {
   return (
