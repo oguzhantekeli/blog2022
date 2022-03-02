@@ -21,7 +21,8 @@ export const getCategories = (blogData) => {
 };
 //recent items state
 export const getRecentItems = (data) => {
-  const sorted = data.sort((a, b) => {
+  const mutable = [...data];
+  const sorted = mutable.sort((a, b) => {
     return new Date(a.registered).getTime() - new Date(b.registered).getTime();
   });
   const items = sorted.reverse().slice(0, 3);
@@ -29,16 +30,19 @@ export const getRecentItems = (data) => {
 };
 
 export const getBlogItemData = (data, itemId) => {
-  const itemData = data.filter((item) => {
-    return item.id === itemId;
+  const mutable = [...data];
+  console.log("mutable:", data);
+  const itemData = mutable.filter((item) => {
+    return item._id === itemId;
   });
   return itemData[0];
 };
 
 //search state
 export const searchBlog = (data, term) => {
+  const mutable = [...data];
   if (term !== "" || term !== undefined) {
-    return data.filter((item) => {
+    return mutable.filter((item) => {
       return (
         item.text.toLowerCase().includes(term.toLowerCase().trim()) ||
         item.title.toLowerCase().includes(term.toLowerCase().trim())
@@ -49,8 +53,9 @@ export const searchBlog = (data, term) => {
   }
 };
 export const searchBlogCategory = (data, term) => {
+  const mutable = [...data];
   if (term !== "" || term !== undefined) {
-    return data.filter((item) => {
+    return mutable.filter((item) => {
       return item.category.includes(term);
     });
   } else {

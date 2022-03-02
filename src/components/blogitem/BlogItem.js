@@ -11,7 +11,7 @@ const BlogItem = ({ data }) => {
             <a href={`/category/${data.category}`}>{data.category}</a>
           </div>
           <div className="blog-title">
-            <a href={`/blog/${data.id}`}>{data.title}</a>
+            <a href={`/blog/${data._id}`}>{data.title}</a>
           </div>
           <div className="blog-abstract">{`${data.text.slice(
             0,

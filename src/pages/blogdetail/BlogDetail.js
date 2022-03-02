@@ -6,6 +6,7 @@ import Comments from "../../components/comments/Comments";
 import { getBlogItemData } from "../../actions/BlogActions";
 
 const BlogDetail = ({ blogData }) => {
+  console.log("blogdata", blogData);
   let blogItemId = useParams();
   const item = getBlogItemData(blogData, blogItemId.blogItemId);
   const itemTags = item.tags.split(",");

@@ -10,7 +10,7 @@ const Bloglist = ({ blogData, refItem }) => {
   const [data, setData] = useState([]);
   useEffect(() => {
     setData(blogData);
-  }, []);
+  }, [data, blogData, setData]);
   return (
     <>
       <div className="blog-list">

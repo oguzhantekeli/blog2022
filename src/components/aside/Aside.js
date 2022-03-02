@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./aside.css";
 import recentThumb from "../../images/blogthumb.png";
 import adv from "../../images/header-image.png";
-import socialImage from "../../images/footer-image.png";
 
 import { getCategories, getRecentItems } from "../../actions/BlogActions";
 const Aside = ({ asideData }) => {
@@ -36,7 +35,7 @@ const Aside = ({ asideData }) => {
           <div className="recent-posts-items">
             {getRecentItems(asideData).map((item) => {
               return (
-                <a href={`/blog/${item.id}`} key={item.id}>
+                <a href={`/blog/${item._id}`} key={item._id}>
                   <div className="recent-post-item">
                     <div className="recent-thumb">
                       <img src={recentThumb} alt={item.title} />

@@ -1,50 +1,78 @@
 import "./profile.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 const Profile = () => {
   const { user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
+  const userAvatar = require(`../../images/svg/${user.avatar}.svg`);
+  const [myBlogs, setMyBlogs] = useState([]);
 
   useEffect(() => {
     return !user ? navigate("/login") : null;
   }, [user, navigate]);
+
+  useEffect(() => {}, [myBlogs, setMyBlogs]);
 
   return (
     <>
       <div className="profile">
         <div className="profile-left">
           <div className="profile-info">
-            <img src="https://place-hold.it/200" alt="profile-avatar" />
-            <h4>author name</h4>
-            <p className="author-title">small text about the author</p>
+            <img src={userAvatar} alt="profile-avatar" />
+            <h4>{user.userName}</h4>
+            <p className="author-title">{user.title}</p>
           </div>
           <div className="profile-social-links">
             <h3>My Social Links</h3>
             <ul className="links-list">
               <li className="link-item">
                 <h4>Website</h4>
-                <a target="_blank" href="./">
-                  www.test.com
-                </a>
+                {user.webSite !== "" ? (
+                  <>
+                    <a target="_blank" rel="noreferrer" href={user.webSite}>
+                      {user.webSite}
+                    </a>
+                  </>
+                ) : (
+                  <>Not yet...</>
+                )}
               </li>
               <li className="link-item">
                 <h4>Facebook</h4>
-                <a target="_blank" href="./">
-                  @username
-                </a>
+                {user.facebook !== "" ? (
+                  <>
+                    <a target="_blank" rel="noreferrer" href={user.facebook}>
+                      {user.facebook}
+                    </a>
+                  </>
+                ) : (
+                  <>Not yet...</>
+                )}
               </li>
               <li className="link-item">
                 <h4>Twitter</h4>
-                <a target="_blank" href="./">
-                  @username
-                </a>
+                {user.twitter !== "" ? (
+                  <>
+                    <a target="_blank" rel="noreferrer" href={user.twitter}>
+                      {user.twitter}
+                    </a>
+                  </>
+                ) : (
+                  <>Not yet...</>
+                )}
               </li>
               <li className="link-item">
                 <h4>Instagram</h4>
-                <a target="_blank" href="./">
-                  @username
-                </a>
+                {user.instagram !== "" ? (
+                  <>
+                    <a target="_blank" rel="noreferrer" href={user.instagram}>
+                      {user.instagram}
+                    </a>
+                  </>
+                ) : (
+                  <>Not yet...</>
+                )}
               </li>
             </ul>
           </div>
@@ -58,13 +86,7 @@ const Profile = () => {
         <div className="profile-right">
           <div className="profile-aboutme">
             <h3>About Me</h3>
-            <p>
-              t fringilla ipsum, vitae lacinia turpis placerat vitae. Morbi in
-              sodales lectus. Suspendisse sit amet diam dictum, lacinia massa
-              in, semper velit. Cras eu convallis felis, a congue est. Nunc ac
-              sollicitudin nisi, a malesuada justo. Donec sodales lobortis
-              lorem, ac dictum erat tincidunt facili
-            </p>
+            <p>{user.about}</p>
           </div>
           <div className="author-blogs">
             <h3>My Blogs</h3>
