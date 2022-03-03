@@ -1,13 +1,38 @@
-import { useRef } from "react";
+import React, { useRef, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getBlogs, reset } from "../../features/blog/blogSlice";
+import { toast } from "react-toastify";
+import { Oval } from "react-loader-spinner";
 import { useParams } from "react-router-dom";
 import "./search.css";
 import Aside from "../../components/aside/Aside";
 import Bloglist from "../../components/bloglist/BlogList";
 import { searchBlog, searchBlogCategory } from "../../actions/BlogActions";
-const Search = ({ blogData, type }) => {
+const Search = ({ type }) => {
   const searchPage = useRef(null);
   const searchTerm = useParams();
   const categoryName = useParams();
+  const dispatch = useDispatch();
+  const { blogs, isError, message, isloading } = useSelector(
+    (state) => state.blog
+  );
+  useEffect(() => {
+    if (isError) {
+      toast.error(message);
+    }
+    dispatch(reset());
+    dispatch(getBlogs());
+  }, [dispatch, isError, message]);
+  const blogData = blogs;
+
+  if (isloading) {
+    return (
+      <div className="spinna">
+        <Oval color="#00BFFF" height={500} width={500} />
+      </div>
+    );
+  }
+
   var resultData;
   if (type === "search") {
     resultData = searchBlog(blogData, searchTerm.searchTerm);

@@ -31,9 +31,8 @@ export const getRecentItems = (data) => {
 
 export const getBlogItemData = (data, itemId) => {
   const mutable = [...data];
-  console.log("mutable:", data);
   const itemData = mutable.filter((item) => {
-    return item._id === itemId;
+    return item.id === itemId;
   });
   return itemData[0];
 };

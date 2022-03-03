@@ -10,7 +10,7 @@ const Comments = ({ commentsData }) => {
           return (
             <div className="comment-item" key={idx}>
               <div className="comment-item-avatar">
-                <img src="http://placehold.it/50x50" alt={item.author} />
+                <img src="https://place-hold.it/50" alt={item.author} />
               </div>
               <div className="comment-item-text">
                 <div className="comment-item-author-name">

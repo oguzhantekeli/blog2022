@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./aside.css";
 import recentThumb from "../../images/blogthumb.png";
 import adv from "../../images/header-image.png";
-
 import { getCategories, getRecentItems } from "../../actions/BlogActions";
 const Aside = ({ asideData }) => {
   const [searchTerm, setSearchTerm] = useState("");

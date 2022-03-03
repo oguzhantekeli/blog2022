@@ -2,12 +2,24 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import blogService from "./blogService";
 
 const initialState = {
-  blogs: [],
+  isLoading: false,
   isError: false,
   isSuccess: false,
-  isLoading: false,
   message: "",
+  blogs: [],
+  blog: {
+    title: "",
+    text: "",
+    author: "",
+    email: "",
+    registered: "",
+    imageBigUrl: "",
+    imageThumbUrl: "",
+    category: "",
+    tags: "",
+  },
 };
+
 //get all blogs
 export const getBlogs = createAsyncThunk("blog/getBlogs", async (thunkAPI) => {
   try {
@@ -85,6 +97,17 @@ export const blogSlice = createSlice({
       state.isSuccess = false;
       state.message = "";
       state.blogs = [];
+      state.blog = {
+        title: "",
+        text: "",
+        author: "",
+        email: "",
+        registered: "",
+        imageBigUrl: "",
+        imageThumbUrl: "",
+        category: "",
+        tags: "",
+      };
     },
   },
   extraReducers: (builder) => {
@@ -110,12 +133,12 @@ export const blogSlice = createSlice({
       .addCase(getBlog.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.blogs = action.payload;
+        state.blog = action.payload;
       })
       .addCase(getBlog.rejected, (state, action) => {
         state.isError = true;
         state.isLoading = false;
-        state.blogs = [];
+        state.blog = {};
         state.message = action.payload;
       })
       //update blog case
