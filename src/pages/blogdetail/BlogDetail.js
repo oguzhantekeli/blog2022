@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getBlog, getBlogs, reset } from "../../features/blog/blogSlice";
+import { getBlog, getBlogs } from "../../features/blog/blogSlice";
+import { getComments } from "../../features/comment/commentSlice";
 import { toast } from "react-toastify";
 import { Oval } from "react-loader-spinner";
 import { useParams } from "react-router-dom";
 import "./blogdetail.css";
 import Aside from "../../components/aside/Aside";
 import Comments from "../../components/comments/Comments";
-// import { getBlogItemData } from "../../actions/BlogActions";
 
 const BlogDetail = () => {
   const dispatch = useDispatch();
@@ -15,13 +15,15 @@ const BlogDetail = () => {
   const { blog, blogs, isError, message, isloading } = useSelector(
     (state) => state.blog
   );
+  const { comments } = useSelector((state) => state.comment);
+
   useEffect(() => {
     if (isError) {
       toast.error(message);
     }
-    // dispatch(reset());
     dispatch(getBlogs());
     dispatch(getBlog(blogItemId.blogItemId));
+    dispatch(getComments());
   }, [dispatch, isError, message, blogItemId]);
 
   if (isloading) {
@@ -81,7 +83,7 @@ const BlogDetail = () => {
               })}
             </div>
           </div>
-          {/* <Comments commentsData={null} /> */}
+          <Comments commentsData={comments} />
         </div>
         <Aside asideData={blogData} />
       </div>
