@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import "./reset.css";
 import "./app.css";
@@ -17,9 +18,12 @@ import Register from "./pages/register/Register";
 import EditPorfile from "./pages/editprofile/EditProfile";
 import NewBlog from "./pages/newblog/NewBlog";
 import Categories from "./pages/categories/Categories";
+import ProtectedRoute from "./components/protectedRoute/ProtectedRoute";
+
 // import blogs from "./blogdata.json";
 
 function App() {
+  const { user } = useSelector((state) => state.auth);
   return (
     <>
       <Router>
@@ -28,13 +32,25 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route
+              path="/profile"
+              element={user ? <Profile /> : <ProtectedRoute />}
+            />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/editprofile" element={<EditPorfile />} />
-            <Route path="/newblog" element={<NewBlog />} />
+            <Route
+              path="/editprofile"
+              element={user ? <EditPorfile /> : <ProtectedRoute />}
+            />
+            <Route
+              path="/newblog"
+              element={user ? <NewBlog isNew={true} /> : <ProtectedRoute />}
+            />
             <Route path="/categories" element={<Categories />} />
-            <Route path="/editblog/:blogItemId" element={<NewBlog />} />
+            <Route
+              path="/editblog/:blogItemId"
+              element={user ? <NewBlog isNew={false} /> : <ProtectedRoute />}
+            />
             <Route path="/blog/:blogItemId" element={<BlogDetail />} />
             <Route
               path="/search/:searchTerm"

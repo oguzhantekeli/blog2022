@@ -25,25 +25,35 @@
   min-width: 200px;
   max-width: 200px;
 }
-#avatar {
-  visibility: hidden;
+.avatar-list {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  /* padding: 10px; */
 }
-.avatar-edit img {
-  width: 200px;
-  margin-bottom: 20px;
+.avatar-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
 }
-.avatar-edit label {
-  background-color: #333;
-  color: #fff;
-  width: 80%;
-  border-radius: 20px;
-  padding: 10px;
-  text-align: center;
-  align-self: center;
+.avatarimage {
+  width: 70px;
+  height: 70px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 5px;
+  cursor: pointer;
 }
+
 .form-group {
   max-width: 50%;
   min-width: unset;
+}
+.form-group img {
+  width: 200px;
+  height: 200px;
 }
 .form-group input {
   min-width: unset;

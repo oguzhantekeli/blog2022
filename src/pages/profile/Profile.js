@@ -5,9 +5,8 @@ import { useNavigate } from "react-router-dom";
 const Profile = () => {
   const { user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
-  const userAvatar = require(`../../images/svg/${user.avatar}.svg`);
+  console.log("profile page user:", user);
   const [myBlogs, setMyBlogs] = useState([]);
-
   useEffect(() => {
     return !user ? navigate("/login") : null;
   }, [user, navigate]);
@@ -19,7 +18,10 @@ const Profile = () => {
       <div className="profile">
         <div className="profile-left">
           <div className="profile-info">
-            <img src={userAvatar} alt="profile-avatar" />
+            <img
+              src={require(`../../images/svg/${user.avatar}.svg`)}
+              alt="profile-avatar"
+            />
             <h4>{user.userName}</h4>
             <p className="author-title">{user.title}</p>
           </div>

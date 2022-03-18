@@ -23,7 +23,7 @@ const BlogDetail = () => {
     }
     dispatch(getBlogs());
     dispatch(getBlog(blogItemId.blogItemId));
-    dispatch(getComments());
+    dispatch(getComments(blogItemId.blogItemId)); //todo:rejected fix///
   }, [dispatch, isError, message, blogItemId]);
 
   if (isloading) {

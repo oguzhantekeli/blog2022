@@ -1,42 +1,154 @@
 import "./editprofile.css";
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { editUser } from "../../features/auth/authSlice";
+import avatarList from "../../components/avatarlist/avatarlist";
+import { toast } from "react-toastify";
+import { Oval } from "react-loader-spinner";
+
+const AvatarImage = ({ name, clickAq }) => {
+  return (
+    <>
+      <img
+        className="avatarimage"
+        src={require(`../../images/svg/${name}.svg`)}
+        alt="user avatar"
+        onClick={() => clickAq(name)}
+      />
+    </>
+  );
+};
 
 const EditProfile = () => {
-  const { user } = useSelector((state) => state.auth);
+  const { user, isloading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [formData, setFormData] = useState({
+    about: user.about,
+    avatar: user.avatar,
+    facebook: user.facebook,
+    instagram: user.instagram,
+    title: user.title,
+    twitter: user.twitter,
+    userName: user.userName,
+    webSite: user.webSite,
+  });
+  const {
+    about,
+    avatar,
+    facebook,
+    instagram,
+    title,
+    twitter,
+    userName,
+    webSite,
+  } = formData;
+  const onChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const userData = {
+      id: user.id,
+      about,
+      avatar,
+      facebook,
+      instagram,
+      title,
+      twitter,
+      userName,
+      webSite,
+      token: user.token,
+    };
+    dispatch(editUser(userData));
+  };
+
+  const changeAvatar = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      avatar: e,
+    }));
+  };
 
   useEffect(() => {
     return !user ? navigate("/login") : null;
   }, [user, navigate]);
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message);
+    }
+    if (isSuccess) {
+      toast.success("Update Successfull.");
+      navigate("/profile");
+    }
+  }, [isError, message, isSuccess, navigate]);
+
+  if (isloading) {
+    return (
+      <div className="spinna">
+        <Oval color="#00BFFF" height={500} width={500} />
+      </div>
+    );
+  }
+
   return (
     <>
       <div className="editprofile">
         <h2>Edit Profile</h2>
-        <form action="" method="post">
+        <form onSubmit={onSubmit}>
           <div className="editauthor">
-            <h3>Profile Image</h3>
-            <div className="form-group avatar-edit">
-              <img src="https://place-hold.it/200" alt="useravatar" />
-              <label htmlFor="avatar">Choose file</label>
-              <input type="file" name="avatar" id="avatar" />
+            <div className="avatar-group">
+              <div className="show-avatar">
+                <h3>Profile Image</h3>
+                <div className="form-group">
+                  <img
+                    src={require(`../../images/svg/${
+                      avatar ? avatar : "default"
+                    }.svg`)}
+                    alt="useravatar"
+                  />
+                </div>
+              </div>
+              <div className="avatar-list">
+                {avatarList.map((n) => {
+                  return (
+                    <AvatarImage name={n} key={n} clickAq={changeAvatar} />
+                  );
+                })}
+              </div>
             </div>
             <h3>About Me</h3>
             <div className="form-group">
               <input
                 type="text"
-                name="username"
+                name="userName"
                 placeholder="Enter user name"
+                value={userName}
+                onChange={onChange}
               />
             </div>
             <div className="form-group">
-              <input type="text" name="title" placeholder="Enter your title" />
+              <input
+                type="text"
+                name="title"
+                placeholder="Enter your title"
+                value={title}
+                onChange={onChange}
+              />
             </div>
             <div className="form-group">
               <textarea
                 name="about"
                 placeholder="write something about yourself"
+                value={about}
+                onChange={onChange}
               ></textarea>
             </div>
             <div className="editlinks">
@@ -45,8 +157,10 @@ const EditProfile = () => {
                 <label htmlFor="website">Web site:</label>
                 <input
                   type="text"
-                  name="website"
+                  name="webSite"
                   placeholder="Enter your web site link"
+                  value={webSite}
+                  onChange={onChange}
                 />
               </div>
               <div className="form-group">
@@ -55,6 +169,8 @@ const EditProfile = () => {
                   type="text"
                   name="facebook"
                   placeholder="Enter your facebook link"
+                  value={facebook}
+                  onChange={onChange}
                 />
               </div>
               <div className="form-group">
@@ -63,6 +179,8 @@ const EditProfile = () => {
                   type="text"
                   name="twitter"
                   placeholder="Enter your twitter link"
+                  value={twitter}
+                  onChange={onChange}
                 />
               </div>
               <div className="form-group">
@@ -71,12 +189,22 @@ const EditProfile = () => {
                   type="text"
                   name="instagram"
                   placeholder="Enter your instagram link"
+                  value={instagram}
+                  onChange={onChange}
                 />
               </div>
             </div>
           </div>
-          <button className="btn-cancel">Go Back</button>
-          <button className="btn-save">Save Changes</button>
+          <button
+            className="btn-cancel"
+            type="button"
+            onClick={() => navigate("/profile")}
+          >
+            Go Back
+          </button>
+          <button type="submit" className="btn-save">
+            Save Changes
+          </button>
         </form>
       </div>
     </>

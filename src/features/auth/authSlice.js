@@ -4,7 +4,6 @@ import authService from "./authService";
 // get user from local storage
 
 const user = JSON.parse(localStorage.getItem("user"));
-
 const initialState = {
   user: user ? user : null,
   isError: false,
@@ -37,6 +36,42 @@ export const login = createAsyncThunk(
   async (user, thunkAPI) => {
     try {
       return await authService.login(user);
+    } catch (error) {
+      const message =
+        (error.response.data &&
+          error.response &&
+          error.response.data.message) ||
+        error.message ||
+        error;
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+
+//edit user
+export const editUser = createAsyncThunk(
+  "auth/editUser",
+  async (userData, thunkAPI) => {
+    try {
+      return await authService.editUser(userData);
+    } catch (error) {
+      const message =
+        (error.response.data &&
+          error.response &&
+          error.response.data.message) ||
+        error.message ||
+        error;
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+
+// change user Password
+export const changePassword = createAsyncThunk(
+  "auth/changePassword",
+  async (currentPassword, newPassword, thunkAPI) => {
+    try {
+      return await authService.changePassword(currentPassword, newPassword);
     } catch (error) {
       const message =
         (error.response.data &&
@@ -95,6 +130,37 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.isError = true;
         state.user = null;
+        state.message = action.payload;
+      })
+      //edit user case
+      .addCase(editUser.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(editUser.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.user = action.payload;
+        localStorage.setItem("user", JSON.stringify(action.payload));
+        console.log("ff case log:", localStorage.getItem("user"));
+        console.log("action payload:", action.payload);
+      })
+      .addCase(editUser.rejected, (state, action) => {
+        state.isError = true;
+        state.isLoading = false;
+        state.message = action.payload;
+      })
+      //change password case
+      .addCase(changePassword.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(changePassword.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.message = action.payload;
+      })
+      .addCase(changePassword.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
         state.message = action.payload;
       })
       //logout case
