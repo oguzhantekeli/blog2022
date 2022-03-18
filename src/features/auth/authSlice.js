@@ -69,9 +69,9 @@ export const editUser = createAsyncThunk(
 // change user Password
 export const changePassword = createAsyncThunk(
   "auth/changePassword",
-  async (currentPassword, newPassword, thunkAPI) => {
+  async (userData, thunkAPI) => {
     try {
-      return await authService.changePassword(currentPassword, newPassword);
+      return await authService.changePassword(userData);
     } catch (error) {
       const message =
         (error.response.data &&
@@ -141,8 +141,6 @@ export const authSlice = createSlice({
         state.isSuccess = true;
         state.user = action.payload;
         localStorage.setItem("user", JSON.stringify(action.payload));
-        console.log("ff case log:", localStorage.getItem("user"));
-        console.log("action payload:", action.payload);
       })
       .addCase(editUser.rejected, (state, action) => {
         state.isError = true;

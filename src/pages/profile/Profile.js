@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 const Profile = () => {
   const { user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
-  console.log("profile page user:", user);
   const [myBlogs, setMyBlogs] = useState([]);
   useEffect(() => {
     return !user ? navigate("/login") : null;
