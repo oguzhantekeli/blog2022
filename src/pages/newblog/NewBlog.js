@@ -1,10 +1,17 @@
 import "./newblog.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-const NewBlog = () => {
+const NewBlog = ({ isNew }) => {
   const { user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
+  const blogImages = []; //45 items
+  for (let i = 1; i <= 45; i++) {
+    blogImages.push(`bi_${i}.png`);
+  }
+
+  const [blogImage, setBlogImage] = useState("default.png");
+  //TODO: BLOG CATEGORY EKLENECEK
 
   useEffect(() => {
     return !user ? navigate("/login") : null;
@@ -12,7 +19,7 @@ const NewBlog = () => {
   return (
     <>
       <div className="newblog">
-        <h3>Post New / Edit Blog</h3>
+        <h3>{isNew ? "New Blog Post" : "Edit Blog"}</h3>
         <div className="newblog-form">
           <form action="" method="post">
             <div className="form-group">
@@ -24,9 +31,27 @@ const NewBlog = () => {
                 required="required"
               />
             </div>
-            <div className="form-group fileselect">
-              <label htmlFor="image">Pick Blog image</label>
-              <input type="file" name="image" id="image" />
+            <div className="select-image">
+              <div className="imagebig">
+                <p>Pick Blog Image</p>
+                <img
+                  src={require(`../../images/blog/${blogImage}`)}
+                  alt="bigimage"
+                />
+              </div>
+              <div className="blog-images">
+                {blogImages.map((item, idx) => {
+                  return (
+                    <img
+                      src={require(`../../images/blog/${item}`)}
+                      alt="blogimage"
+                      onClick={() => {
+                        setBlogImage(item);
+                      }}
+                    />
+                  );
+                })}
+              </div>
             </div>
             <div className="form-group">
               <label htmlFor="blogtext">Blog Text</label>
