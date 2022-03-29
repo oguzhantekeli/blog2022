@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL = "http://localhost:5000/api/comments/";
+const API_URL = "https://mern-backend-blog2022.herokuapp.com/api/comments/";
 
 //get all comments
 const getComments = async () => {

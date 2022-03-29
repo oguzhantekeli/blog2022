@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/users/";
+const API_URL = "https://mern-backend-blog2022.herokuapp.com/api/users/";
 
 const getUser = async (id) => {
   const response = await axios.get(`${API_URL}user/${id}`);
