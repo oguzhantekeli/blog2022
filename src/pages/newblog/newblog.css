@@ -32,6 +32,19 @@
   height: 70vh;
   width: 90vw;
 }
+.form-group select {
+  margin-left: 20px;
+  margin-bottom: 20px;
+  outline: none;
+  border: none;
+  padding: 5px;
+  font-size: 1.1rem;
+  color: #fff;
+  appearance: none;
+  background-color: #181818;
+  width: 50%;
+  text-align: center;
+}
 .fileselect {
   margin-top: 20px;
 }
@@ -78,33 +91,35 @@
   opacity: 0.75;
   cursor: pointer;
 }
-.blog-images {
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-  flex-flow: wrap;
-  margin: 5px 10px;
-  margin-top: 10px;
-}
-.blog-images img {
-  width: 70px;
-  height: 70px;
-  cursor: pointer;
-  margin: 5px;
-}
 
-.select-image {
+.image-picker {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.image-picker p {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+.picker {
   display: flex;
   flex-direction: row;
-  align-items: stretch;
-}
-.select-image p {
-  margin-bottom: 20px;
-  font-size: 1.1rem;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 .imagebig {
-  max-width: 50%;
+  margin-right: 10px;
 }
 .imagebig img {
-  width: 100%;
+  width: 300px;
+  height: 300px;
+}
+
+.blog-images {
+  margin-left: 10px;
+}
+.blog-images img {
+  width: 75px;
+  height: 75px;
+  cursor: pointer;
 }

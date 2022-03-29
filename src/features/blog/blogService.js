@@ -2,6 +2,22 @@ import axios from "axios";
 
 const API_URL = "http://localhost:5000/api/blogs/";
 
+//get categories from mongodb
+const getCategories = async () => {
+  const response = await axios.get(`${API_URL}categories`);
+  return response.data;
+};
+
+//get all blogs from mongodb
+const createNewBlog = async (blogData) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${blogData.token}`,
+    },
+  };
+  const response = await axios.post(API_URL, blogData, config);
+  return response.data;
+};
 //get all blogs from mongodb
 const getBlogs = async () => {
   const response = await axios.get(API_URL);
@@ -29,8 +45,10 @@ const deleteBlog = async (id) => {
 const blogService = {
   getBlogs,
   getBlog,
+  createNewBlog,
   updateBlog,
   deleteBlog,
+  getCategories,
 };
 
 export default blogService;

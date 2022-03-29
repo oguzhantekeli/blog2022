@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./aside.css";
 import recentThumb from "../../images/blogthumb.png";
 import adv from "../../images/header-image.png";
-import { getCategories, getRecentItems } from "../../actions/BlogActions";
+import { getLiveCategories, getRecentItems } from "../../actions/BlogActions";
 const Aside = ({ asideData }) => {
   const [searchTerm, setSearchTerm] = useState("");
   return (
@@ -55,7 +55,7 @@ const Aside = ({ asideData }) => {
         <div className="aside-categories">
           <h2>Categories</h2>
           <div className="aside-category-list">
-            {getCategories(asideData).map((item, idx) => {
+            {getLiveCategories(asideData).map((item, idx) => {
               return (
                 <div className="aside-category-item" key={idx}>
                   <a href={`/category/${item.categoryName}`}>

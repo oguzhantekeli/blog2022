@@ -1,5 +1,5 @@
-//categories state
-export const getCategories = (blogData) => {
+//get used categories state
+export const getLiveCategories = (blogData) => {
   const categoryNames = [];
   const categoriesArray = [];
   for (let i = 0; i < blogData.length; i++) {
@@ -19,6 +19,7 @@ export const getCategories = (blogData) => {
   });
   return categoriesArray;
 };
+
 //recent items state
 export const getRecentItems = (data) => {
   const mutable = [...data];

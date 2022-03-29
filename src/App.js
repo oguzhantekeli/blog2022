@@ -15,7 +15,7 @@ import Search from "./pages/search/Search";
 import Profile from "./pages/profile/Profile";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
-import EditPorfile from "./pages/editprofile/EditProfile";
+import EditProfile from "./pages/editprofile/EditProfile";
 import NewBlog from "./pages/newblog/NewBlog";
 import Categories from "./pages/categories/Categories";
 import ProtectedRoute from "./components/protectedRoute/ProtectedRoute";
@@ -41,7 +41,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route
               path="/editprofile"
-              element={user ? <EditPorfile /> : <ProtectedRoute />}
+              element={user ? <EditProfile /> : <ProtectedRoute />}
             />
             <Route
               path="/newblog"
