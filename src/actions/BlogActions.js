@@ -7,7 +7,6 @@ export const getLiveCategories = (blogData) => {
       categoryNames.push(blogData[i].category);
     }
   }
-
   categoryNames.forEach((name) => {
     let count = 0;
     blogData.forEach((blogItemObject) => {
@@ -61,4 +60,11 @@ export const searchBlogCategory = (data, term) => {
   } else {
     return window.location.replace("/error");
   }
+};
+
+export const getUserBlogs = (blogs, id) => {
+  const matchUser = (authorId) => {
+    return authorId === id;
+  };
+  return blogs.filter((blog) => matchUser(blog.authorId));
 };

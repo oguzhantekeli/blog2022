@@ -1,7 +1,9 @@
+import LifeCycle from "../../components/lifecycletest/Lifecycle";
 import "./contact.css";
 const Contact = () => {
   return (
     <>
+      <LifeCycle />
       <div className="contact">
         <div className="gmap"></div>
         <div className="contact-services">

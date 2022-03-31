@@ -8,7 +8,7 @@ const getCategories = async () => {
   return response.data;
 };
 
-//get all blogs from mongodb
+//create new blog post on mongodb
 const createNewBlog = async (blogData) => {
   const config = {
     headers: {

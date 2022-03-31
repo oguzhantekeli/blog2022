@@ -15,10 +15,11 @@ const NewBlog = ({ isNew }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [categories, setCategories] = useState([]);
+  const [blogStatus, setBlogStatus] = useState("Published");
   const [blogImage, setBlogImage] = useState("default.png");
   const [formData, setFormData] = useState({
     title: "",
-    category: "",
+    category: "General",
     blogtext: "",
     tags: "",
   });
@@ -46,8 +47,10 @@ const NewBlog = ({ isNew }) => {
       authorName: user.userName,
       authorId: user.id,
       token: user.token,
+      status: blogStatus,
     };
     dispatch(createNewBlog(formBlogData));
+
     console.log(formBlogData);
   };
 
@@ -66,21 +69,6 @@ const NewBlog = ({ isNew }) => {
       blogService.getCategories().then((e) => setCategories(e));
     }
   }, [categories, user, navigate, isError, message, isSuccess, blog]);
-  // useEffect(() => {
-  //   if (!categories.length) {
-  //     blogService.getCategories().then((e) => setCategories(e));
-  //   }
-  // }, [categories]);
-
-  // useEffect(() => {
-  //   if (isError) {
-  //     toast.error(message);
-  //   }
-  //   if (isSuccess || blog) {
-  //     toast.success("Successfully Posted");
-  //     navigate("/profile");
-  //   }
-  // }, [blog, isError, isSuccess, message, navigate]);
 
   if (isloading) {
     return (
@@ -116,13 +104,7 @@ const NewBlog = ({ isNew }) => {
               >
                 {categories.map((item, idx) => {
                   return (
-                    <option
-                      key={idx}
-                      value={item.category}
-                      defaultValue={
-                        item.category === "General" ? "selected" : false
-                      }
-                    >
+                    <option key={idx} value={item.category}>
                       {item.category}
                     </option>
                   );
@@ -180,8 +162,18 @@ const NewBlog = ({ isNew }) => {
             <div className="newblogbuttons">
               <a href="./">Go Back</a>
               <div className="savebuttons">
-                <button className="savedraft">Save as Draft</button>
-                <button type="submit" className="publish">
+                <button
+                  type="submit"
+                  onClick={() => setBlogStatus("Draft")}
+                  className="savedraft"
+                >
+                  Save as Draft
+                </button>
+                <button
+                  type="submit"
+                  className="publish"
+                  onClick={() => setBlogStatus("Published")}
+                >
                   Publish
                 </button>
               </div>

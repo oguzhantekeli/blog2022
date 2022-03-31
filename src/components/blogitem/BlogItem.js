@@ -13,10 +13,11 @@ const BlogItem = ({ data }) => {
           <div className="blog-title">
             <a href={`/blog/${data._id}`}>{data.title}</a>
           </div>
-          <div className="blog-abstract">{`${data.text.slice(
-            0,
-            200
-          )}[...]`}</div>
+          <div className="blog-abstract">
+            {data.text.length > 200
+              ? `${data.text.slice(0, 200)}[...]`
+              : data.text}
+          </div>
           <div className="blog-item-meta">
             <p>
               {data.registered} / {data.author}

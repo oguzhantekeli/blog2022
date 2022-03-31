@@ -1,16 +1,19 @@
 import "./profile.css";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import MyBlogs from "../../components/myblogs/MyBlogs";
+// import { CountdownMonths } from "../../components/countdown/Countdown";
+
 const Profile = () => {
   const { user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
-  const [myBlogs, setMyBlogs] = useState([]);
-  useEffect(() => {
-    return !user ? navigate("/login") : null;
-  }, [user, navigate]);
 
-  useEffect(() => {}, [myBlogs, setMyBlogs]);
+  useEffect(() => {
+    if (!user) {
+      navigate("/login");
+    }
+  }, [user, navigate]);
 
   return (
     <>
@@ -89,81 +92,17 @@ const Profile = () => {
             <h3>About Me</h3>
             <p>{user.about}</p>
           </div>
-          <div className="author-blogs">
-            <h3>My Blogs</h3>
-            <div className="author-blog-item">
-              <a href="./">
-                <h3>
-                  blog title
-                  <span className="blogstatus">Published</span>
-                </h3>
-                <p className="blog-text">
-                  nsectetur vestibulum id eu arcu. Suspendisse non placerat
-                  urna. Fusce pharetra venenatis turpis, vel gravida arcu
-                  feugiat vitae. Suspendis[...]
-                </p>
-                <p className="blog-date">2020.11.12</p>
-              </a>
-            </div>
-            <div className="author-blog-item">
-              <a href="./">
-                <h3>
-                  blog title
-                  <span className="blogstatus">Published</span>
-                </h3>
-                <p className="blog-text">
-                  nsectetur vestibulum id eu arcu. Suspendisse non placerat
-                  urna. Fusce pharetra venenatis turpis, vel gravida arcu
-                  feugiat vitae. Suspendis[...]
-                </p>
-                <p className="blog-date">2020.11.12</p>
-              </a>
-            </div>
-            <div className="author-blog-item">
-              <a href="./">
-                <h3>
-                  blog title
-                  <span className="blogstatus">Published</span>
-                </h3>
-                <p className="blog-text">
-                  nsectetur vestibulum id eu arcu. Suspendisse non placerat
-                  urna. Fusce pharetra venenatis turpis, vel gravida arcu
-                  feugiat vitae. Suspendis[...]
-                </p>
-                <p className="blog-date">2020.11.12</p>
-              </a>
-            </div>
-            <div className="author-blog-item">
-              <a href="./">
-                <h3>
-                  blog title
-                  <span className="blogstatus">Published</span>
-                </h3>
-                <p className="blog-text">
-                  nsectetur vestibulum id eu arcu. Suspendisse non placerat
-                  urna. Fusce pharetra venenatis turpis, vel gravida arcu
-                  feugiat vitae. Suspendis[...]
-                </p>
-                <p className="blog-date">2020.11.12</p>
-              </a>
-            </div>
-            <div className="author-blog-item">
-              <a href="./">
-                <h3>
-                  blog title
-                  <span className="blogstatus">Published</span>
-                </h3>
-                <p className="blog-text">
-                  nsectetur vestibulum id eu arcu. Suspendisse non placerat
-                  urna. Fusce pharetra venenatis turpis, vel gravida arcu
-                  feugiat vitae. Suspendis[...]
-                </p>
-                <p className="blog-date">2020.11.12</p>
-              </a>
-            </div>
-          </div>
+          <MyBlogs userId={user.id} />
         </div>
       </div>
+      {/* <hr />
+      <hr />
+      <hr />
+      <hr />
+      <CountdownMonths /> */}
+      {
+        //for experimental uses
+      }
     </>
   );
 };
