@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUserBlogs } from "../../actions/BlogActions";
 import { getBlogs } from "../../features/blog/blogSlice";
 import { Oval } from "react-loader-spinner";
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 const MyBlogs = ({ userId }) => {
   const { blogs, isLoading } = useSelector((state) => state.blog);
@@ -35,7 +34,7 @@ const MyBlogs = ({ userId }) => {
         {userBlogs.map((item, idx) => {
           return (
             <div className="author-blog-item" key={idx}>
-              <a href="./">
+              <a href={`/blog/${item._id}`}>
                 <h3>
                   {item.title}
                   <span
