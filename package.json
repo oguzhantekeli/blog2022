@@ -1,6 +1,10 @@
 {
   "name": "blog2022",
   "version": "0.1.0",
+  "engines": {
+    "node": "16.13.2",
+    "npm": "8.5.5"
+},
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.2",
