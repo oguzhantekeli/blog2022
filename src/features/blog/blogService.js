@@ -31,14 +31,28 @@ const getBlog = async (id) => {
 };
 
 //update blog data from mongodb
-const updateBlog = async (id, blogItemData) => {
-  const response = await axios.post(API_URL + id, blogItemData);
+const updateBlog = async (blogItemData) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${blogItemData.token}`,
+    },
+  };
+  const response = await axios.put(
+    API_URL + blogItemData.id,
+    blogItemData,
+    config
+  );
   return response.data;
 };
 
 //delete blog from mongodb
-const deleteBlog = async (id) => {
-  const response = await axios.post(API_URL + id);
+const deleteBlog = async (blogItemData) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${blogItemData.token}`,
+    },
+  };
+  const response = await axios.delete(API_URL + blogItemData.id, config);
   return response.data;
 };
 

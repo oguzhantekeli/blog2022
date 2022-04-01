@@ -39,3 +39,13 @@
   float: right;
   color: #e8592a;
 }
+.blog-controls {
+  display: flex;
+  justify-content: flex-end;
+}
+.blog-controls a {
+  color: #666;
+  font-size: 0.75rem;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  padding: 5px;
+}

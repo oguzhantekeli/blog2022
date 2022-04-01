@@ -1,17 +1,17 @@
-import "./newblog.css";
+import "./editblog.css";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import blogService from "../../features/blog/blogService";
-import { createNewBlog } from "../../features/blog/blogSlice";
+import { getBlog, updateBlog } from "../../features/blog/blogSlice";
 import { toast } from "react-toastify";
 import { Oval } from "react-loader-spinner";
 
-const NewBlog = () => {
+const EditBlog = () => {
   const { user } = useSelector((state) => state.auth);
-  const { blog, isloading, isError, isSuccess, message } = useSelector(
-    (state) => state.blog
-  );
+  const { blog, isLoadingBlog, isErrorBlog, isSuccessBlog, messageBlog } =
+    useSelector((state) => state.blog);
+  const { blogItemId } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [categories, setCategories] = useState([]);
@@ -41,46 +41,59 @@ const NewBlog = () => {
     const formBlogData = {
       title,
       category,
-      blogtext,
-      blogImage,
-      tags,
-      authorName: user.userName,
-      authorId: user.id,
-      token: user.token,
+      text: blogtext,
+      imageBigUrl: blogImage,
+      imageThumbUrl: blogImage,
       status: blogStatus,
+      tags,
+      token: user.token,
+      id: blogItemId,
     };
-    dispatch(createNewBlog(formBlogData));
-
-    console.log(formBlogData);
+    console.log("blogItemId:", blogItemId, "formBlogData", formBlogData);
+    dispatch(updateBlog(formBlogData));
   };
+
+  useEffect(() => {
+    if (!blog.id) {
+      dispatch(getBlog(blogItemId));
+    }
+    if (blog.id !== "") {
+      blogService.getCategories().then((e) => setCategories(e));
+      setBlogImage(blog.imageBigUrl);
+      setBlogStatus(blog.status);
+      setFormData({
+        title: blog.title,
+        category: blog.category,
+        blogtext: blog.text,
+        tags: blog.tags,
+      });
+    }
+  }, [blog, dispatch]);
 
   useEffect(() => {
     if (!user) {
       navigate("/login");
     }
-    if (isError) {
-      toast.error(message);
+    if (isErrorBlog) {
+      toast.error(messageBlog);
     }
-    if (isSuccess) {
-      toast.success("Successfully Posted");
+    if (isSuccessBlog) {
+      toast.success("Successfully Updated");
       navigate("/profile");
     }
-    if (!categories.length) {
-      blogService.getCategories().then((e) => setCategories(e));
-    }
-  }, [categories, user, navigate, isError, message, isSuccess, blog]);
+  }, [user, navigate, isErrorBlog, messageBlog, isSuccessBlog]);
 
-  if (isloading) {
+  if (isLoadingBlog) {
     return (
-      <div className="spinna">
-        <Oval color="#00BFFF" height={500} width={500} />
+      <div style={{ margin: "0px auto" }}>
+        <Oval color="#00BFFF" height={50} width={50} />
       </div>
     );
   }
   return (
     <>
       <div className="newblog">
-        <h3>New Blog Post</h3>
+        <h3>Edit Blog</h3>
         <div className="newblog-form">
           <form onSubmit={(e) => onSubmit(e)}>
             <div className="form-group">
@@ -160,7 +173,7 @@ const NewBlog = () => {
               />
             </div>
             <div className="newblogbuttons">
-              <a href="./">Go Back</a>
+              <a href="/profile">Go Back</a>
               <div className="savebuttons">
                 <button
                   type="submit"
@@ -185,4 +198,4 @@ const NewBlog = () => {
   );
 };
 
-export default NewBlog;
+export default EditBlog;

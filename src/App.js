@@ -20,6 +20,7 @@ import NewBlog from "./pages/newblog/NewBlog";
 import Categories from "./pages/categories/Categories";
 import ProtectedRoute from "./components/protectedRoute/ProtectedRoute";
 import ChangePassword from "./pages/changePassword/ChangePassword";
+import EditBlog from "./pages/editblog/EditBlog";
 
 // import blogs from "./blogdata.json";
 
@@ -45,12 +46,12 @@ function App() {
             />
             <Route
               path="/newblog"
-              element={user ? <NewBlog isNew={true} /> : <ProtectedRoute />}
+              element={user ? <NewBlog /> : <ProtectedRoute />}
             />
             <Route path="/categories" element={<Categories />} />
             <Route
               path="/editblog/:blogItemId"
-              element={user ? <NewBlog isNew={false} /> : <ProtectedRoute />}
+              element={user ? <EditBlog /> : <ProtectedRoute />}
             />
             <Route
               path="/changepassword"

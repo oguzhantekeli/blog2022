@@ -9,7 +9,6 @@ const MyBlogs = ({ userId }) => {
   const { blogs, isLoading } = useSelector((state) => state.blog);
   const dispatch = useDispatch();
   const [userBlogs, setUserBlogs] = useState([]);
-
   useEffect(() => {
     if (!userBlogs.length) {
       dispatch(getBlogs());
@@ -52,8 +51,13 @@ const MyBlogs = ({ userId }) => {
                     ? `${item.text.slice(0, 200)}[...]`
                     : item.text}
                 </p>
-                <p className="blog-date">{item.updatedAt}</p>
+                <p className="blog-date">
+                  {new Date(item.updatedAt).toLocaleDateString()}
+                </p>
               </a>
+              <div className="blog-controls">
+                <a href={`/editblog/${item._id}`}>Edit This Post</a>
+              </div>
             </div>
           );
         })}
