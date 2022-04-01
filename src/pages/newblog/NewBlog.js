@@ -9,9 +9,8 @@ import { Oval } from "react-loader-spinner";
 
 const NewBlog = () => {
   const { user } = useSelector((state) => state.auth);
-  const { blog, isloading, isError, isSuccess, message } = useSelector(
-    (state) => state.blog
-  );
+  const { blog, isLoadingBlog, isErrorBlog, isSuccessBlog, messageBlog } =
+    useSelector((state) => state.blog);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [categories, setCategories] = useState([]);
@@ -58,19 +57,27 @@ const NewBlog = () => {
     if (!user) {
       navigate("/login");
     }
-    if (isError) {
-      toast.error(message);
+    if (isErrorBlog) {
+      toast.error(messageBlog);
     }
-    if (isSuccess) {
+    if (isSuccessBlog) {
       toast.success("Successfully Posted");
       navigate("/profile");
     }
     if (!categories.length) {
       blogService.getCategories().then((e) => setCategories(e));
     }
-  }, [categories, user, navigate, isError, message, isSuccess, blog]);
+  }, [
+    categories,
+    user,
+    navigate,
+    isErrorBlog,
+    messageBlog,
+    isSuccessBlog,
+    blog,
+  ]);
 
-  if (isloading) {
+  if (isLoadingBlog) {
     return (
       <div className="spinna">
         <Oval color="#00BFFF" height={500} width={500} />

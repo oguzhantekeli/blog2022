@@ -3,9 +3,11 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import blogService from "../../features/blog/blogService";
-import { getBlog, updateBlog } from "../../features/blog/blogSlice";
+import { deleteBlog, getBlog, updateBlog } from "../../features/blog/blogSlice";
 import { toast } from "react-toastify";
 import { Oval } from "react-loader-spinner";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 
 const EditBlog = () => {
   const { user } = useSelector((state) => state.auth);
@@ -90,6 +92,25 @@ const EditBlog = () => {
       </div>
     );
   }
+  const deleteOptions = {
+    title: "Delete Post",
+    message: "Are You Sure? You can not undo this.!!",
+    buttons: [
+      {
+        label: "Delete this. I do not want to see it again...",
+        onClick: () => {
+          if (dispatch(deleteBlog({ id: blog.id, token: user.token }))) {
+            toast.success("Successfully Deleted the post");
+            navigate("/profile");
+          }
+        },
+      },
+    ],
+    // customUI: ({ onClose }) => <div>Custom UI</div>,
+    closeOnEscape: true,
+    closeOnClickOutside: true,
+  };
+
   return (
     <>
       <div className="newblog">
@@ -175,6 +196,13 @@ const EditBlog = () => {
             <div className="newblogbuttons">
               <a href="/profile">Go Back</a>
               <div className="savebuttons">
+                <button
+                  type="button"
+                  onClick={() => confirmAlert(deleteOptions)}
+                  className="deletepost"
+                >
+                  Delete
+                </button>
                 <button
                   type="submit"
                   onClick={() => setBlogStatus("Draft")}

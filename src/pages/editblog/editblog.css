@@ -78,6 +78,9 @@
 .savebuttons .publish {
   background-color: #3b7026;
 }
+.savebuttons .deletepost {
+  background-color: #702626;
+}
 .savebuttons button {
   transition: all 0.3s;
   border-radius: 10px;
