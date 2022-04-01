@@ -2,8 +2,8 @@
   "name": "blog2022",
   "version": "0.1.0",
   "engines": {
-    "node": "16.13.2",
-    "npm": "8.5.5"
+    "node": "16.x",
+    "npm": "8.x"
 },
   "private": true,
   "dependencies": {
