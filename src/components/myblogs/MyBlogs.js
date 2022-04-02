@@ -10,7 +10,7 @@ const MyBlogs = ({ userId }) => {
   const dispatch = useDispatch();
   const [userBlogs, setUserBlogs] = useState([]);
   useEffect(() => {
-    if (!userBlogs.length && !blogs.length) {
+    if (!blogs.length) {
       dispatch(getBlogs());
     }
   }, [userBlogs, dispatch]);
