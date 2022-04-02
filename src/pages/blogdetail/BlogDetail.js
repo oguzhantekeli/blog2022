@@ -11,8 +11,8 @@ import Comments from "../../components/comments/Comments";
 
 const BlogDetail = () => {
   const dispatch = useDispatch();
-  const blogItemId = useParams();
-  const { blog, blogs, isError, message, isloading } = useSelector(
+  const { blogItemId } = useParams();
+  const { blog, blogs, isError, message, isLoading } = useSelector(
     (state) => state.blog
   );
   const { comments } = useSelector((state) => state.comment);
@@ -22,11 +22,11 @@ const BlogDetail = () => {
       toast.error(message);
     }
     dispatch(getBlogs());
-    dispatch(getBlog(blogItemId.blogItemId));
-    dispatch(getComments(blogItemId.blogItemId)); //todo:rejected fix///
+    dispatch(getBlog(blogItemId));
+    dispatch(getComments(blogItemId)); //todo:rejected fix///
   }, [dispatch, isError, message, blogItemId]);
 
-  if (isloading) {
+  if (isLoading) {
     return (
       <div className="spinna">
         <Oval color="#00BFFF" height={500} width={500} />
@@ -46,7 +46,7 @@ const BlogDetail = () => {
             </div>
             <div className="blog-item-meta">
               <p>
-                {blog.registered} / {blog.author}
+                {new Date(blog.updatedAt).toLocaleDateString()} / {blog.author}
               </p>
             </div>
             <div className="blog-detail-social-share">
@@ -63,7 +63,10 @@ const BlogDetail = () => {
           </div>
           <div className="blog-detail-content">
             <div className="blog-detail-image">
-              <img src={blog.imageBigUrl} alt={blog.title} />
+              <img
+                src={require(`../../images/blog/${blog.imageBigUrl}`)}
+                alt={blog.title}
+              />
             </div>
             <div className="blog-detail-text">
               <p>{blog.text}</p>
