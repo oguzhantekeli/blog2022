@@ -5,7 +5,10 @@ const BlogItem = ({ data }) => {
     <>
       <div className="blog-list-item">
         <div className="thumb-image">
-          <img src={`./images/${data.imageBigUrl}`} alt={data.title} />
+          <img
+            src={require(`../../images/blog/${data.imageBigUrl}`)}
+            alt={data.title}
+          />
         </div>
         <div className="blog-item-text">
           <div className="category-badge">
