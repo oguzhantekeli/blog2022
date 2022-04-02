@@ -30,6 +30,7 @@ const MyBlogs = ({ userId }) => {
     <>
       <div className="author-blogs">
         <h3>My Blogs</h3>
+        {!userBlogs.length ? <div>:( No Blogs Here...</div> : null}
         {userBlogs.map((item, idx) => {
           return (
             <div className="author-blog-item" key={idx}>
