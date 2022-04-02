@@ -1,10 +1,11 @@
 import "./blogitem.css";
 const BlogItem = ({ data }) => {
+  console.log(data);
   return (
     <>
       <div className="blog-list-item">
         <div className="thumb-image">
-          <img src={data.imageBigUrl} alt={data.title} />
+          <img src={`./images/${data.imageBigUrl}`} alt={data.title} />
         </div>
         <div className="blog-item-text">
           <div className="category-badge">
@@ -20,7 +21,7 @@ const BlogItem = ({ data }) => {
           </div>
           <div className="blog-item-meta">
             <p>
-              {data.registered} / {data.author}
+              {new Date(data.updatedAt).toLocaleDateString()} / {data.author}
             </p>
           </div>
         </div>
