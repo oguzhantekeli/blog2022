@@ -44,6 +44,16 @@ const updateBlog = async (blogItemData) => {
   );
   return response.data;
 };
+//update blog data from mongodb
+const updateUserBlogs = async (blogItemData) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${blogItemData.token}`,
+    },
+  };
+  const response = await axios.put(API_URL, blogItemData, config);
+  return response.data;
+};
 
 //delete blog from mongodb
 const deleteBlog = async (blogItemData) => {
@@ -61,6 +71,7 @@ const blogService = {
   getBlog,
   createNewBlog,
   updateBlog,
+  updateUserBlogs,
   deleteBlog,
   getCategories,
 };

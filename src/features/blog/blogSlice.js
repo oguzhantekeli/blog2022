@@ -90,6 +90,23 @@ export const updateBlog = createAsyncThunk(
     }
   }
 );
+//update user blogs for user name change
+export const updateUserBlogs = createAsyncThunk(
+  "blog/updateUserBlogs",
+  async (authorNamesForBlogs, thunkAPI) => {
+    try {
+      return await blogService.updateUserBlogs(authorNamesForBlogs);
+    } catch (error) {
+      const message =
+        (error.response.data &&
+          error.response &&
+          error.response.data.message) ||
+        error.message ||
+        error;
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
 
 //delete blog post
 export const deleteBlog = createAsyncThunk(

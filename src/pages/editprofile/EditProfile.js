@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { editUser } from "../../features/auth/authSlice";
+import { updateUserBlogs } from "../../features/blog/blogSlice";
 import avatarList from "../../components/avatarlist/avatarlist";
 import { toast } from "react-toastify";
 import { Oval } from "react-loader-spinner";
@@ -54,6 +55,7 @@ const EditProfile = () => {
   };
   const onSubmit = (e) => {
     e.preventDefault();
+    console.log("userName:", userName, "user.userName:", user.userName);
     const userData = {
       id: user.id,
       about,
@@ -66,7 +68,19 @@ const EditProfile = () => {
       webSite,
       token: user.token,
     };
-    dispatch(editUser(userData));
+    //dispatch updates
+    if (userName.length) {
+      dispatch(editUser(userData));
+      if (userName.length && userName !== user.userName) {
+        dispatch(
+          updateUserBlogs({
+            token: user.token,
+            oldUserName: user.userName,
+            newUserName: userName,
+          })
+        );
+      }
+    }
   };
 
   const changeAvatar = (e) => {
