@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./aside.css";
-import recentThumb from "../../images/blogthumb.png";
 import adv from "../../images/header-image.png";
 import { getLiveCategories, getRecentItems } from "../../actions/BlogActions";
 const Aside = ({ asideData }) => {
@@ -37,11 +36,18 @@ const Aside = ({ asideData }) => {
                 <a href={`/blog/${item._id}`} key={item._id}>
                   <div className="recent-post-item">
                     <div className="recent-thumb">
-                      <img src={recentThumb} alt={item.title} />
+                      <img
+                        src={require(`../../images/blog/${item.imageThumbUrl}`)}
+                        alt={item.title}
+                      />
                     </div>
                     <div className="recent-post-text">
                       <div className="recent-post-title">{item.title}</div>
-                      <div className="recent-post-date">{item.registered}</div>
+                      <div className="recent-post-date">
+                        {item.author}
+                        {" / "}
+                        {new Date(item.updatedAt).toLocaleDateString()}
+                      </div>
                     </div>
                   </div>
                 </a>
