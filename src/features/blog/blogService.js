@@ -23,6 +23,16 @@ const getBlogs = async () => {
   const response = await axios.get(API_URL);
   return response.data;
 };
+//get all blogs from mongodb
+const getMyBlogs = async (token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  const response = await axios.get(`${API_URL}myblogs`, config);
+  return response.data;
+};
 
 //get single blog data from mongodb
 const getBlog = async (id) => {
@@ -68,6 +78,7 @@ const deleteBlog = async (blogItemData) => {
 
 const blogService = {
   getBlogs,
+  getMyBlogs,
   getBlog,
   createNewBlog,
   updateBlog,

@@ -92,7 +92,7 @@ const Profile = () => {
             <h3>About Me</h3>
             <p>{user.about}</p>
           </div>
-          <MyBlogs userId={user.id} />
+          <MyBlogs userId={user.id} token={user.token} />
         </div>
       </div>
       {/* <hr />

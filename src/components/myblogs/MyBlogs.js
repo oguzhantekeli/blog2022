@@ -2,16 +2,16 @@ import "./myblogs.css";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserBlogs } from "../../actions/BlogActions";
-import { getBlogs } from "../../features/blog/blogSlice";
+import { getMyBlogs } from "../../features/blog/blogSlice";
 import { Oval } from "react-loader-spinner";
 
-const MyBlogs = ({ userId }) => {
+const MyBlogs = ({ userId, token }) => {
   const { blogs, isLoading } = useSelector((state) => state.blog);
   const dispatch = useDispatch();
   const [userBlogs, setUserBlogs] = useState([]);
   useEffect(() => {
     if (!blogs.length) {
-      dispatch(getBlogs());
+      dispatch(getMyBlogs(token));
     }
   }, [userBlogs, dispatch]);
   useEffect(() => {
