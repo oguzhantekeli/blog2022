@@ -88,7 +88,7 @@ const BlogDetail = () => {
               })}
             </div>
           </div>
-          <Comments blogItemId />
+          <Comments blogItemId={blogItemId} />
         </div>
         <Aside asideData={blogData} />
       </div>

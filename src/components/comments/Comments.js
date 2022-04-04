@@ -19,28 +19,31 @@ const Comments = ({ blogItemId }) => {
         <div className="comments-title">
           <h2>Comments</h2>
         </div>
-        {!comments.length ? <div>No Comments Here :(</div> : null}
-        {comments.map((item) => {
-          return (
-            <div className="comment-item" key={item._id}>
-              <div className="comment-item-avatar">
-                <img
-                  src={require(`../../images/svg/${item.commentOwnerAvatar}.svg`)}
-                  alt={item.commentOwnerName}
-                />
-              </div>
-              <div className="comment-item-text">
-                <div className="comment-item-author-name">
-                  <h3>{item.commentOwnerName}</h3>
-                  <p>{new Date(item.updatedAt).toLocaleDateString()}</p>
+        {!comments.length ? (
+          <div>No Comments Here :(</div>
+        ) : (
+          comments.map((item) => {
+            return (
+              <div className="comment-item" key={item._id}>
+                <div className="comment-item-avatar">
+                  <img
+                    src={require(`../../images/svg/${item.commentOwnerAvatar}.svg`)}
+                    alt={item.commentOwnerName}
+                  />
                 </div>
-                <div className="comment-item-content">
-                  <p>{item.commentText}</p>
+                <div className="comment-item-text">
+                  <div className="comment-item-author-name">
+                    <h3>{item.commentOwnerName}</h3>
+                    <p>{new Date(item.updatedAt).toLocaleDateString()}</p>
+                  </div>
+                  <div className="comment-item-content">
+                    <p>{item.commentText}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })
+        )}
       </div>
       <div className="post-comment">
         <div className="post-comment-title">
@@ -51,7 +54,7 @@ const Comments = ({ blogItemId }) => {
             <a href="/login">Login </a>to write comments.{" "}
           </div>
         ) : (
-          <CommentForm blogItemId />
+          <CommentForm blogItemId={blogItemId} />
         )}
       </div>
     </>
@@ -61,8 +64,6 @@ const CommentForm = ({ blogItemId }) => {
   const [textComment, setTextComment] = useState("");
   const { user } = useSelector((state) => state.auth);
   const {
-    comment,
-    comments,
     isErrorComments,
     isLoadingComment,
     isSuccessComment,
