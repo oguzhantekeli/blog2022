@@ -22,7 +22,7 @@ const Comments = ({ blogData }) => {
         {!comments.length ? <div>No Comments Here :(</div> : null}
         {comments.map((item) => {
           return (
-            <div className="comment-item" key={item.id}>
+            <div className="comment-item" key={item._id}>
               <div className="comment-item-avatar">
                 <img
                   src={require(`../../images/svg/${item.commentOwnerAvatar}.svg`)}
