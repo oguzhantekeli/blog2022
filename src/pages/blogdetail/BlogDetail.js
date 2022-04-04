@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getBlog, getBlogs } from "../../features/blog/blogSlice";
 import { getComments } from "../../features/comment/commentSlice";
@@ -15,17 +15,25 @@ const BlogDetail = () => {
   const { blog, blogs, isError, message, isLoading } = useSelector(
     (state) => state.blog
   );
+  const [blogImage, setBlogImage] = useState("default.png");
   const { comments } = useSelector((state) => state.comment);
 
   useEffect(() => {
     if (isError) {
       toast.error(message);
     }
-    dispatch(getBlogs());
-    dispatch(getBlog(blogItemId));
-    dispatch(getComments(blogItemId)); //todo:rejected fix///
-  }, [dispatch, isError, message, blogItemId]);
-
+    if (!blogs.length) {
+      dispatch(getBlogs());
+    }
+    if (!blog.id) {
+      dispatch(getBlog(blogItemId));
+    }
+    if (blog.imageBigUrl) {
+      const imagetto = require(`../../images/blog/${blog.imageBigUrl}`);
+      setBlogImage(imagetto);
+    }
+    // dispatch(getComments(blogItemId)); //todo:rejected fix///
+  }, [dispatch, isError, message, blogItemId, blog.imageBigUrl]);
   if (isLoading) {
     return (
       <div className="spinna">
@@ -63,10 +71,7 @@ const BlogDetail = () => {
           </div>
           <div className="blog-detail-content">
             <div className="blog-detail-image">
-              <img
-                src={require(`../../images/blog/${blog.imageBigUrl}`)}
-                alt={blog.title}
-              />
+              <img src={blogImage} alt={blog.title} />
             </div>
             <div className="blog-detail-text">
               <p>{blog.text}</p>

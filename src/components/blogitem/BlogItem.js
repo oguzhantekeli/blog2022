@@ -1,6 +1,5 @@
 import "./blogitem.css";
 const BlogItem = ({ data }) => {
-  console.log(data);
   return (
     <>
       <div className="blog-list-item">

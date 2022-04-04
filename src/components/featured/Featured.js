@@ -8,7 +8,13 @@ const Featured = ({ featuredItems }) => {
       <div className="featured">
         {items.map((item, idx) => {
           return (
-            <div className="featured-item" key={idx}>
+            <div
+              className="featured-item"
+              key={idx}
+              style={{
+                backgroundImage: `url("${require(`../../images/blog/${item.imageBigUrl}`)}")`,
+              }}
+            >
               <div className="category-badge">
                 <a href={`/category/${item.category}`}>{item.category}</a>
               </div>
@@ -17,7 +23,8 @@ const Featured = ({ featuredItems }) => {
                   <h2>{item.title}</h2>
                   <div className="blog-meta">
                     <p>
-                      {item.registered} / {item.author}
+                      {new Date(item.updatedAt).toLocaleDateString()} /{" "}
+                      {item.author}
                     </p>
                   </div>
                 </a>
