@@ -14,7 +14,6 @@ const BlogDetail = () => {
   const { blog, blogs, isError, message, isLoading } = useSelector(
     (state) => state.blog
   );
-  const { user } = useSelector((state) => state.auth);
   const [blogImage, setBlogImage] = useState("default.png");
 
   useEffect(() => {
@@ -89,14 +88,7 @@ const BlogDetail = () => {
               })}
             </div>
           </div>
-          <Comments
-            blogData={{
-              blogId: blogItemId,
-              commentOwnerId: user.id,
-              commentOwnerName: user.userName,
-              token: user.token,
-            }}
-          />
+          <Comments blogItemId />
         </div>
         <Aside asideData={blogData} />
       </div>

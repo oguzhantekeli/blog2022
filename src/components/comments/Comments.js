@@ -5,13 +5,13 @@ import { getComments, addComment } from "../../features/comment/commentSlice";
 import { toast } from "react-toastify";
 import { Oval } from "react-loader-spinner";
 
-const Comments = ({ blogData }) => {
+const Comments = ({ blogItemId }) => {
   const { user } = useSelector((state) => state.auth);
   const { comments, comment } = useSelector((state) => state.comment);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getComments(blogData.blogId));
-  }, [dispatch, blogData.blogId, comments.length, comment]);
+    dispatch(getComments(blogItemId));
+  }, [dispatch, blogItemId, comments.length, comment]);
 
   return (
     <>
@@ -51,14 +51,15 @@ const Comments = ({ blogData }) => {
             <a href="/login">Login </a>to write comments.{" "}
           </div>
         ) : (
-          <CommentForm blogData={blogData} />
+          <CommentForm blogItemId />
         )}
       </div>
     </>
   );
 };
-const CommentForm = ({ blogData }) => {
+const CommentForm = ({ blogItemId }) => {
   const [textComment, setTextComment] = useState("");
+  const { user } = useSelector((state) => state.auth);
   const {
     comment,
     comments,
@@ -82,11 +83,11 @@ const CommentForm = ({ blogData }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     const commentPayload = {
-      blogId: blogData.blogId,
-      commentOwnerId: blogData.commentOwnerId,
-      commentOwnerName: blogData.commentOwnerName,
+      blogId: blogItemId,
+      commentOwnerId: user.id,
+      commentOwnerName: user.userName,
       commentText: textComment,
-      token: blogData.token,
+      token: user.token,
     };
     dispatch(addComment(commentPayload));
   };
