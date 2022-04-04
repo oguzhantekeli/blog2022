@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getBlog, getBlogs } from "../../features/blog/blogSlice";
-import { getComments } from "../../features/comment/commentSlice";
 import { toast } from "react-toastify";
 import { Oval } from "react-loader-spinner";
 import { useParams } from "react-router-dom";
@@ -15,8 +14,8 @@ const BlogDetail = () => {
   const { blog, blogs, isError, message, isLoading } = useSelector(
     (state) => state.blog
   );
+  const { user } = useSelector((state) => state.auth);
   const [blogImage, setBlogImage] = useState("default.png");
-  const { comments } = useSelector((state) => state.comment);
 
   useEffect(() => {
     if (isError) {
@@ -32,7 +31,6 @@ const BlogDetail = () => {
       const imagetto = require(`../../images/blog/${blog.imageBigUrl}`);
       setBlogImage(imagetto);
     }
-    // dispatch(getComments(blogItemId)); //todo:rejected fix///
   }, [dispatch, isError, message, blogItemId, blog.imageBigUrl]);
   if (isLoading) {
     return (
@@ -91,7 +89,14 @@ const BlogDetail = () => {
               })}
             </div>
           </div>
-          <Comments commentsData={comments} />
+          <Comments
+            blogData={{
+              blogId: blogItemId,
+              commentOwnerId: user.id,
+              commentOwnerName: user.userName,
+              token: user.token,
+            }}
+          />
         </div>
         <Aside asideData={blogData} />
       </div>

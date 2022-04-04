@@ -84,15 +84,14 @@
   border-radius: 10px;
   transition: all 0.3s;
 }
-.form-group textarea {
+#comment-text {
   width: 100%;
   font-size: 1.1rem;
-  max-width: 50%;
   margin-bottom: 10px;
   border: 2px solid #818181;
   transition: all 0.3s;
 }
-.form-group textarea:focus {
+#comment-text:focus {
   transition: all 0.3s;
   border: 1px solid #818181;
   outline: none;
