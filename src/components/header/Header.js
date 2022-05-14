@@ -3,7 +3,7 @@ import "./header.css";
 import headerImage from "../../images/header-image.png";
 import { useSelector, useDispatch } from "react-redux";
 import { logout, reset } from "../../features/auth/authSlice";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 
 const Header = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -80,6 +80,7 @@ const Header = () => {
               <a href="/">Home</a>
             </li>
             <li className="nav-item">
+              <Link to="/categories">Categories</Link>
               <a href="/categories">Categories</a>
             </li>
             <li className="nav-item">
